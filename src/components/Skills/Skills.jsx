@@ -1,37 +1,66 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  SiReact, SiJavascript, SiHtml5, SiCss3, SiTailwindcss,
-  SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiMysql,
-  SiPython, SiPandas, SiNumpy, SiScikitlearn, SiGit,
-  SiGithub, SiPostman, SiFirebase, SiDocker, SiOpenjdk
+import {
+  SiReact,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiPython,
+  SiPandas,
+  SiNumpy,
+  SiScikitlearn,
+  SiGit,
+  SiGithub,
+  SiPostman,
+  SiFirebase,
+  SiDocker,
+  SiOpenjdk,
 } from "react-icons/si";
 import { FiCode, FiActivity } from "react-icons/fi";
-import "../../index.css";
-
 
 const iconMap = {
-  "React": <SiReact />, "JavaScript": <SiJavascript />, "HTML": <SiHtml5 />,
-  "CSS": <SiCss3 />, "Tailwind CSS": <SiTailwindcss />, "Node.js": <SiNodedotjs />,
-  "Express": <SiExpress />, "REST APIs": <FiCode />, "JWT Auth": <FiActivity />,
-  "MongoDB": <SiMongodb />, "PostgreSQL": <SiPostgresql />, "MySQL": <SiMysql />,
-  "Python": <SiPython />, "Pandas": <SiPandas />, "NumPy": <SiNumpy />,
-  "Scikit-learn": <SiScikitlearn />, "EDA": <FiActivity />, "Git": <SiGit />,
-  "GitHub": <SiGithub />, "Postman": <SiPostman />, "Firebase": <SiFirebase />,
-  "Docker": <SiDocker />, "Java": <SiOpenjdk />
+  React: <SiReact />,
+  JavaScript: <SiJavascript />,
+  HTML: <SiHtml5 />,
+  CSS: <SiCss3 />,
+  "Tailwind CSS": <SiTailwindcss />,
+  "Node.js": <SiNodedotjs />,
+  Express: <SiExpress />,
+  "REST APIs": <FiCode />,
+  "JWT Auth": <FiActivity />,
+  MongoDB: <SiMongodb />,
+  PostgreSQL: <SiPostgresql />,
+  MySQL: <SiMysql />,
+  Python: <SiPython />,
+  Pandas: <SiPandas />,
+  NumPy: <SiNumpy />,
+  "Scikit-learn": <SiScikitlearn />,
+  EDA: <FiActivity />,
+  Git: <SiGit />,
+  GitHub: <SiGithub />,
+  Postman: <SiPostman />,
+  Firebase: <SiFirebase />,
+  Docker: <SiDocker />,
+  Java: <SiOpenjdk />,
 };
 
 const skillGroups = [
   {
-    title: "Core & Algorithms",
-    skills: ["Java", "Python", "Git", "GitHub"],
+    title: "Programming & Foundations",
+    skills: ["Java", "Python"],
   },
   {
-    title: "Frontend",
+    title: "Frontend Engineering",
     skills: ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
   },
   {
-    title: "Backend",
+    title: "Backend Systems",
     skills: ["Node.js", "Express", "REST APIs", "JWT Auth"],
   },
   {
@@ -44,7 +73,7 @@ const skillGroups = [
   },
   {
     title: "Tools & DevOps",
-    skills: ["Postman", "Firebase", "Docker"],
+    skills: ["Git", "GitHub", "Postman", "Firebase", "Docker"],
   },
 ];
 
@@ -52,57 +81,63 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative bg-white dark:bg-slate-950 py-16 sm:py-24 overflow-hidden transition-colors duration-500"
+      className="relative py-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
     >
- 
-      <div className="absolute right-[-120px] top-1/3 w-80 h-80 bg-indigo-300 dark:bg-indigo-600/10 rounded-full blur-[120px] opacity-30 dark:opacity-20" />
+      {/* HERO GRID BACKGROUND */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
 
-      <div className="relative container mx-auto px-4 md:w-[85%]">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white"
-          >
-            Technical Arsenal
-          </motion.h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-            A comprehensive toolkit for full-stack engineering, machine learning, and scalable systems.
+      {/* Glow */}
+      <div className="absolute right-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
+
+      <div className="relative container mx-auto px-6 md:w-[85%]">
+        {/* SECTION HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl sm:text-5xl font-black">
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Technical Arsenal
+            </span>
+          </h2>
+
+          <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            A focused toolkit for frontend engineering, scalable backend
+            systems, and AI-powered applications.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* SKILL GROUP GRID */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {skillGroups.map((group, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="
-                bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl p-8
-                shadow-xl border border-white/30 dark:border-slate-800
-                hover:border-indigo-500/50 transition-all group
-              "
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-[2rem] p-10 shadow-2xl border border-white/30 dark:border-slate-800 hover:-translate-y-2 hover:shadow-indigo-300/30 dark:hover:shadow-indigo-900/30 transition-all duration-500"
             >
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+              {/* Group Title */}
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
+                <span className="w-3 h-3 rounded-full bg-indigo-600"></span>
                 {group.title}
               </h3>
 
-              <div className="flex flex-wrap gap-3">
+              {/* Skills */}
+              <div className="flex flex-wrap gap-4">
                 {group.skills.map((skill, i) => (
                   <motion.span
                     key={i}
                     whileHover={{ scale: 1.1 }}
-                    className="
-                      flex items-center gap-2 text-sm px-4 py-2 rounded-2xl
-                      bg-indigo-50 dark:bg-indigo-900/30 
-                      text-indigo-700 dark:text-indigo-300 
-                      font-semibold border border-indigo-100/50 dark:border-indigo-800/30
-                      transition-all
-                    "
+                    className="flex items-center gap-2 text-sm px-4 py-2 rounded-2xl
+                    bg-indigo-50 dark:bg-indigo-900/30
+                    text-indigo-700 dark:text-indigo-300
+                    font-semibold border border-indigo-100/50 dark:border-indigo-800/30
+                    transition-all duration-200"
                   >
                     <span className="text-lg">{iconMap[skill]}</span>
                     {skill}

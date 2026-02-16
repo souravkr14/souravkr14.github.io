@@ -1,144 +1,209 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiMapPin, FiBookOpen, FiBriefcase, FiZap } from "react-icons/fi";
-import "../../index.css";
 
 const About = () => {
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 40 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.1, duration: 0.5 },
+      transition: {
+        delay: i * 0.12,
+        duration: 0.7,
+        ease: "easeOut",
+      },
     }),
   };
 
-  return (
-    <section 
-      id="about" 
-      className="relative bg-white dark:bg-slate-950 py-16 sm:py-24 overflow-hidden transition-colors duration-500"
-    >
+  const cardBase =
+    "relative bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-white/30 dark:border-slate-800 shadow-xl hover:shadow-indigo-300/30 dark:hover:shadow-indigo-900/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden";
 
-      <div className="absolute left-[-120px] top-1/3 w-80 h-80 bg-indigo-300 dark:bg-indigo-600/20 rounded-full blur-[120px] opacity-30 dark:opacity-20" />
+  return (
+    <section
+      id="about"
+      className="relative py-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
+    >
+      {/* GRID BACKGROUND */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
+
+      {/* Glow Effects */}
+      <div className="absolute left-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
+      <div className="absolute right-[-200px] bottom-[-150px] w-[500px] h-[500px] bg-purple-500 rounded-full blur-[160px] opacity-20"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      
+
+        {/* ===== SECTION HEADING (CENTERED) ===== */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl sm:text-5xl font-black">
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              About Me
+            </span>
+          </h2>
+
+          <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            A snapshot of my academic journey, industry exposure, and current technical direction.
+          </p>
+        </motion.div>
+
+        {/* ===== GRID CONTENT ===== */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+          {/* ABOUT CARD */}
           <motion.div
             custom={0}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-7 bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/30 dark:border-slate-800 flex flex-col justify-center"
+            className={`lg:col-span-7 p-10 ${cardBase}`}
           >
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
-              About Me
-            </h2>
-            <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+            <div className="space-y-5 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
               <p>
-                I’m <span className="font-semibold text-indigo-600 dark:text-indigo-400">Sourav Kumar</span>, 
-                an MCA student at <span className="font-semibold text-gray-900 dark:text-white">BIT Mesra</span>. I specialize 
-                in building scalable applications and extracting data-driven insights.
+                I’m{" "}
+                <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                  Sourav Kumar
+                </span>
+                , an MCA student at{" "}
+                <span className="font-semibold text-gray-900 dark:text-white">
+                  BIT Mesra
+                </span>.
               </p>
+
               <p>
-                Currently, I'm bridging the gap between <span className="text-indigo-600 dark:text-indigo-400 font-medium">Full-Stack Development </span> 
-                and <span className="text-indigo-600 dark:text-indigo-400 font-medium">Machine Learning</span>, turning complex 
-                logic into user-friendly software.
+                I focus on building scalable, high-performance frontend systems
+                using modern React ecosystems — crafting elegant interfaces
+                backed by clean architecture.
+              </p>
+
+              <p>
+                Alongside frontend engineering, I explore{" "}
+                <span className="text-indigo-600 dark:text-indigo-400 font-medium">
+                  Machine Learning
+                </span>{" "}
+                and AI-powered web applications, integrating intelligence into
+                real-world products.
               </p>
             </div>
           </motion.div>
 
-          {/* EDUCATION  */}
+          {/* EDUCATION */}
           <motion.div
             custom={1}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-5 bg-indigo-600 text-white rounded-3xl p-8 shadow-xl flex flex-col justify-between group overflow-hidden relative"
+            className="lg:col-span-5 bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-500"
           >
-            <div className="relative z-10 space-y-6">
+            <div className="relative z-10 space-y-8">
               <div>
-                <FiBookOpen className="text-3xl mb-4" />
+                <FiBookOpen className="text-3xl mb-4 opacity-90" />
                 <h3 className="text-2xl font-bold">Education</h3>
               </div>
-              
-              <div className="space-y-4">
-               
-                <div className="border-l-2 border-indigo-300/30 pl-4">
-                  <p className="text-lg font-bold">MCA @ BIT Mesra</p>
-                  <p className="text-sm text-indigo-100 opacity-90">2024 – 2026 (Expected)</p>
+
+              <div className="space-y-6">
+                <div className="border-l-2 border-white/30 pl-5">
+                  <p className="text-lg font-semibold">MCA – BIT Mesra</p>
+                  <p className="text-sm opacity-80">2024 – 2026 (Expected)</p>
                 </div>
 
-                
-                <div className="border-l-2 border-indigo-300/30 pl-4">
-                  <p className="text-lg font-bold">BCA @ GGSIPU Delhi</p>
-                  <p className="text-sm text-indigo-100 opacity-90">Graduated 2024</p>
+                <div className="border-l-2 border-white/30 pl-5">
+                  <p className="text-lg font-semibold">BCA – GGSIPU Delhi</p>
+                  <p className="text-sm opacity-80">Graduated 2024</p>
                 </div>
               </div>
             </div>
 
-         
-            <div className="absolute -right-4 -bottom-4 text-white/5 text-9xl font-black italic group-hover:scale-110 transition-transform">
+            <div className="absolute -right-8 -bottom-8 text-white/10 text-[140px] font-black tracking-widest group-hover:scale-110 transition-transform duration-700">
               EDU
             </div>
           </motion.div>
 
-          {/* 3. INTERNSHIP  */}
+          {/* INTERNSHIP */}
           <motion.div
             custom={2}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-4 bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-white/30 dark:border-slate-800 flex items-center gap-4"
+            className={`lg:col-span-4 p-8 ${cardBase}`}
           >
-            <div className="p-3 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-2xl">
-              <FiBriefcase className="text-2xl" />
-            </div>
-            <div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Recent Internship</p>
-              <h4 className="font-bold text-gray-900 dark:text-white">SDE Intern</h4>
-              <p className="text-xs text-gray-500 dark:text-gray-300">Bluestock Fintech (December 2025 - January 2026)</p>
+            <div className="flex items-start gap-5">
+              <div className="p-4 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-2xl">
+                <FiBriefcase className="text-2xl" />
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
+                  Industry Experience
+                </p>
+                <h4 className="font-bold text-gray-900 dark:text-white mt-1">
+                  SDE Intern
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+                  Bluestock Fintech
+                </p>
+              </div>
             </div>
           </motion.div>
 
-          {/* 4. LOCATION  */}
+          {/* LOCATION */}
           <motion.div
             custom={3}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-4 bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-white/30 dark:border-slate-800 flex items-center gap-4"
+            className={`lg:col-span-4 p-8 ${cardBase}`}
           >
-            <div className="p-3 bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 rounded-2xl">
-              <FiMapPin className="text-2xl" />
-            </div>
-            <div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Location</p>
-              <h4 className="font-bold text-gray-900 dark:text-white">Ranchi, India</h4>
-              <p className="text-xs text-gray-500 dark:text-gray-300">Open to Remote & Relocation</p>
+            <div className="flex items-start gap-5">
+              <div className="p-4 bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 rounded-2xl">
+                <FiMapPin className="text-2xl" />
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
+                  Location
+                </p>
+                <h4 className="font-bold text-gray-900 dark:text-white mt-1">
+                  Ranchi, India
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+                  Open to Remote & Relocation
+                </p>
+              </div>
             </div>
           </motion.div>
 
-          {/* 5. FOCUS  */}
+          {/* FOCUS */}
           <motion.div
             custom={4}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-4 bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-white/30 dark:border-slate-800 flex items-center gap-4"
+            className={`lg:col-span-4 p-8 ${cardBase}`}
           >
-            <div className="p-3 bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 rounded-2xl">
-              <FiZap className="text-2xl" />
-            </div>
-            <div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Current Focus</p>
-              <h4 className="font-bold text-gray-900 dark:text-white">AI-Powered SaaS</h4>
-              <p className="text-xs text-gray-500 dark:text-gray-300">Full-Stack & ML</p>
+            <div className="flex items-start gap-5">
+              <div className="p-4 bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 rounded-2xl">
+                <FiZap className="text-2xl" />
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
+                  Current Focus
+                </p>
+                <h4 className="font-bold text-gray-900 dark:text-white mt-1">
+                  Frontend Engineering
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+                  AI-Powered Web Products
+                </p>
+              </div>
             </div>
           </motion.div>
 

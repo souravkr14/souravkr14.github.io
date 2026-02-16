@@ -25,8 +25,8 @@ const Hero = () => {
         >
           {/* Availability */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold mb-6">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-            Open to Frontend / SDE Roles – 2026
+            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+           Namaste! Welcome to my space.
           </div>
 
           {/* Name */}
