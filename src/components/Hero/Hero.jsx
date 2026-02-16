@@ -7,137 +7,159 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative bg-white dark:bg-slate-950 pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center transition-colors duration-300"
+      className="relative min-h-screen flex items-center overflow-hidden bg-white dark:bg-black transition-colors duration-500"
     >
-      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-100 dark:bg-indigo-900/20 rounded-full blur-[120px] opacity-50 dark:opacity-30 animate-pulse" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-50 dark:bg-blue-900/10 rounded-full blur-[100px] opacity-40 dark:opacity-20" />
+      {/* Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
 
-      <div className="relative container mx-auto px-6 md:w-[85%] grid md:grid-cols-2 gap-16 items-center">
-        {/* LEFT CONTENT */}
+      {/* Glow */}
+      <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
+      <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-500 rounded-full blur-[140px] opacity-20"></div>
+
+      <div className="relative container mx-auto px-6 md:w-[85%] grid md:grid-cols-2 gap-20 items-center">
+        {/* LEFT */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800 shadow-sm">
-            <p className="text-indigo-600 dark:text-indigo-400 font-bold text-sm tracking-wide uppercase flex items-center gap-2">
-              Namaste, Welcome to my space
-            </p>
+          {/* Availability */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold mb-6">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
+            Open to Frontend / SDE Roles – 2026
           </div>
 
-          <h1 className="text-5xl sm:text-7xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">
-            Sourav Kumar<span className="text-indigo-600">.</span>
+          {/* Name */}
+          <h1 className="text-5xl sm:text-7xl font-black tracking-tight leading-tight">
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Sourav Kumar
+            </span>
           </h1>
 
-          <div className="text-2xl sm:text-3xl text-gray-700 dark:text-gray-300 font-bold mb-8 h-[40px]">
-            <span className="mr-3">Aspiring</span>
+          {/* Dynamic Title */}
+          <h2 className="text-2xl sm:text-3xl mt-6 font-bold text-gray-700 dark:text-gray-300 h-[40px]">
+            Designing
             <TypeAnimation
               sequence={[
-                "Software Developer",
+                " Scalable Frontend Systems",
                 2000,
-                "AI/ML Engineer",
+                " AI-Powered Interfaces",
                 2000,
-                "Full Stack Developer",
+                " Intelligent Web Applications",
                 2000,
               ]}
-              wrapper="span"
-              speed={50}
+              speed={60}
               repeat={Infinity}
-              className="text-indigo-600 dark:text-indigo-400 border-b-4 border-indigo-600/20"
+              wrapper="span"
+              className="text-indigo-600 dark:text-indigo-400 ml-2"
             />
-          </div>
+          </h2>
 
-          <p className="text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed text-lg mb-10">
-            MCA student at{" "}
-            <span className="text-gray-900 dark:text-white font-semibold">
+          {/* Bio */}
+          <p className="mt-8 text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+            MCA @{" "}
+            <span className="font-semibold text-gray-900 dark:text-white">
               BIT Mesra
             </span>
-            . I build high-performance software systems and turn complex data
-            into actionable intelligence.
+            . Frontend-focused engineer passionate about building
+            high-performance user interfaces and integrating machine learning
+            into real-world web products.
           </p>
 
-          <div className="flex gap-6 items-center flex-wrap">
+          {/* Metrics */}
+          <div className="flex gap-10 mt-10 text-center">
+            <div>
+              <p className="text-3xl font-extrabold text-indigo-600">150+</p>
+              <p className="text-sm text-gray-500">DSA Problems</p>
+            </div>
+            <div>
+              <p className="text-3xl font-extrabold text-indigo-600">2</p>
+              <p className="text-sm text-gray-500">Internships</p>
+            </div>
+            <div>
+              <p className="text-3xl font-extrabold text-indigo-600">4+</p>
+              <p className="text-sm text-gray-500">Web & AI Projects</p>
+            </div>
+          </div>
+
+          {/* Tech Pills */}
+          <div className="flex flex-wrap gap-3 mt-8">
+            {[
+              "Java",
+              "Python",
+              "React",
+              "Node.js",
+              "Express.js",
+              "Machine Learning",
+              "Deep Learning",
+            ].map((tech) => (
+              <span
+                key={tech}
+                className="px-4 py-2 text-xs font-semibold bg-gray-100 dark:bg-slate-800 rounded-full text-gray-700 dark:text-gray-300 shadow-sm"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex gap-6 mt-12 flex-wrap">
             <a
               href="#projects"
-              className="px-10 py-4 rounded-2xl bg-indigo-600 text-white font-bold shadow-2xl shadow-indigo-200 dark:shadow-none hover:bg-indigo-700 transition-all hover:-translate-y-1 active:scale-95"
+              className="px-10 py-4 rounded-2xl bg-indigo-600 text-white font-bold shadow-lg hover:bg-indigo-700 transition-all hover:-translate-y-1"
             >
-              View My Work
+              View Projects
             </a>
 
             <a
               href="/Sourav_Kumar_Resume.pdf"
               download
-              className="px-10 py-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-gray-100 dark:border-slate-800 text-gray-900 dark:text-white font-bold hover:bg-gray-50 dark:hover:bg-slate-800 transition-all hover:-translate-y-1 active:scale-95"
+              className="px-10 py-4 rounded-2xl border-2 border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-50 dark:hover:bg-slate-800 transition-all hover:-translate-y-1"
             >
-              Get Resume
+              Download Resume
             </a>
           </div>
 
-          {/* Social Links*/}
-          <div className="mt-12 flex items-center gap-8 text-gray-400 dark:text-gray-500">
+          {/* Social */}
+          <div className="mt-12 flex gap-6 text-2xl text-gray-400">
             <a
-              href="https://github.com"
-              className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-2xl"
+              href="https://github.com/sourav-kr14"
+              className="hover:text-indigo-500 transition"
             >
               <FiGithub />
             </a>
             <a
-              href="https://linkedin.com"
-              className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-2xl"
+              href="https://www.linkedin.com/in/thesouravv/"
+              className="hover:text-indigo-500 transition"
             >
               <FiLinkedin />
             </a>
             <a
-              href="mailto:your-email@example.com"
-              className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-2xl"
+              href="mailto:souravkr93@gmail.com"
+              className="hover:text-indigo-500 transition"
             >
               <FiMail />
             </a>
           </div>
         </motion.div>
 
+        {/* RIGHT IMAGE */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="flex justify-center items-center"
+          transition={{ duration: 1 }}
+          className="flex justify-center"
         >
           <div className="relative group">
-            <div className="absolute -inset-10 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full blur-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
+            <div className="absolute -inset-6 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-3xl blur-3xl opacity-30 group-hover:opacity-40 transition"></div>
 
-            <motion.div
-              animate={{
-                y: [0, -20, 0],
-                rotate: [0, 2, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="relative z-10"
-            >
-              {/* Image*/}
-              <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl p-4 rounded-[40px] shadow-2xl border border-white/50 dark:border-slate-800 relative overflow-hidden group">
-                <img
-                  src="/profile.jpeg"
-                  alt="Sourav Kumar"
-                  className="rounded-[30px] w-72 sm:w-80 h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 shadow-inner"
-                />
-
-                <div className="absolute bottom-8 right-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-white/20 dark:border-slate-700">
-                  <p className="text-xs font-black text-indigo-600 dark:text-indigo-400 tracking-tighter">
-                    MCA @ BIT Mesra
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-10 -left-10 w-24 h-24 border-2 border-dashed border-indigo-200 dark:border-indigo-900/50 rounded-full opacity-50"
-            />
+            <div className="relative bg-white/30 dark:bg-slate-900/40 backdrop-blur-2xl p-4 rounded-[40px] shadow-2xl border border-white/40 dark:border-slate-800">
+              <img
+                src="/profile.jpeg"
+                alt="Sourav Kumar"
+                className="rounded-[30px] w-80 object-cover shadow-xl"
+              />
+            </div>
           </div>
         </motion.div>
       </div>
