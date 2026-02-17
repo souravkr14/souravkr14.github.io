@@ -32,7 +32,6 @@ const About = () => {
       <div className="absolute right-[-200px] bottom-[-150px] w-[500px] h-[500px] bg-purple-500 rounded-full blur-[160px] opacity-20"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
-
         {/* ===== SECTION HEADING (CENTERED) ===== */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -48,13 +47,13 @@ const About = () => {
           </h2>
 
           <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-            A snapshot of my academic journey, industry exposure, and current technical direction.
+            A snapshot of my academic journey, industry exposure, and current
+            technical direction.
           </p>
         </motion.div>
 
         {/* ===== GRID CONTENT ===== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
           {/* ABOUT CARD */}
           <motion.div
             custom={0}
@@ -73,7 +72,8 @@ const About = () => {
                 , an MCA student at{" "}
                 <span className="font-semibold text-gray-900 dark:text-white">
                   BIT Mesra
-                </span>.
+                </span>
+                .
               </p>
 
               <p>
@@ -197,16 +197,16 @@ const About = () => {
                 <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
                   Current Focus
                 </p>
-                <h4 className="font-bold text-gray-900 dark:text-white mt-1">
-                  Frontend Engineering
-                </h4>
-                <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+                <h4 className=" font-bold text-gray-900 dark:text-white mt-1">
                   AI-Powered Web Products
+                </h4>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">
+                  Deep Learning <span className="mx-1 text-gray-300">|</span>{" "}
+                  Modern Full Stack
                 </p>
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
