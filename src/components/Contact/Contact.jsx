@@ -32,16 +32,17 @@ const Contact = () => {
           </h2>
 
           <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            I’m currently exploring opportunities in{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
-              Frontend Engineering
-            </span>{" "}
-            and{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
-              AI-powered Systems
-            </span>
-            . If you have an opportunity, collaboration, or idea — let’s talk.
-          </p>
+  Open to roles in{" "}
+  <span className="font-semibold text-gray-900 dark:text-white">
+    Full-Stack Software Engineering
+  </span>{" "}
+  and{" "}
+  <span className="font-semibold text-gray-900 dark:text-white">
+    AI & Machine Learning Systems
+  </span>
+  . Let’s build scalable, intelligent products together.
+</p>
+
         </motion.div>
 
         {/* CONTACT CARD */}
