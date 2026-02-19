@@ -19,9 +19,9 @@ const Experience = () => {
       contributions: [
         "Engineered real-time preview features and cross-section state management ensuring <span class='font-bold text-indigo-600 dark:text-indigo-400'>100%</span> data consistency across financial modules.",
         "Designed responsive React UI dashboards, improving navigation efficiency by <span class='font-bold text-indigo-600 dark:text-indigo-400'>25%</span>.",
-        "Participated in Agile sprints and peer code reviews, delivering clean, maintainable production-ready code."
+        "Participated in Agile sprints and peer code reviews, delivering clean, maintainable production-ready code.",
       ],
-      techStack: ["React", "JavaScript", "Tailwind CSS", "Git", "Node.js"]
+      techStack: ["React", "JavaScript", "Tailwind CSS", "Git", "Node.js"],
     },
     {
       role: "Software Development Engineer (Intern)",
@@ -29,14 +29,14 @@ const Experience = () => {
       location: "Remote",
       duration: "June 2025 – July 2025",
       certificateLink:
-        "https://drive.google.com/file/d/1i0z1dk_yY74JCt8IcvUppOsmUTi5NASP/view?usp=sharing",
+        "https://drive.google.com/file/d/1h8bZ00p9LNKi6W5t_wmCYQADvKwYEj8C/view?usp=sharing",
       contributions: [
         "Developed secure authentication flows across frontend and backend layers.",
         "Optimized rendering cycles reducing load latency by <span class='font-bold text-indigo-600 dark:text-indigo-400'>25%</span>.",
-        "Resolved full-stack defects improving overall performance by <span class='font-bold text-indigo-600 dark:text-indigo-400'>15%</span>."
+        "Resolved full-stack defects improving overall performance by <span class='font-bold text-indigo-600 dark:text-indigo-400'>15%</span>.",
       ],
-      techStack: ["React", "Node.js", "Express.js", "REST APIs", "Git"]
-    }
+      techStack: ["React", "Node.js", "Express.js", "REST APIs", "Git"],
+    },
   ];
 
   return (
@@ -44,15 +44,11 @@ const Experience = () => {
       id="experience"
       className="relative pb-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
     >
-   
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
 
-    
       <div className="absolute right-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
-
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +68,6 @@ const Experience = () => {
           </p>
         </motion.div>
 
-    
         <div className="relative space-y-16">
           <div className="hidden md:block absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent opacity-30"></div>
 
@@ -89,7 +84,6 @@ const Experience = () => {
               <div className="hidden md:block absolute left-0 top-3 w-5 h-5 rounded-full bg-indigo-600 border-4 border-white dark:border-black shadow-lg"></div>
 
               <div className="group bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-[2rem] p-10 shadow-2xl border border-white/30 dark:border-slate-800 hover:-translate-y-2 hover:shadow-indigo-300/30 dark:hover:shadow-indigo-900/30 transition-all duration-500">
-
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10 gap-6">
                   <div>
@@ -156,12 +150,10 @@ const Experience = () => {
                     ))}
                   </div>
                 </div>
-
               </div>
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );
