@@ -63,42 +63,33 @@ const About = () => {
             variants={cardVariants}
             className={`lg:col-span-7 p-10 ${cardBase}`}
           >
-            <div className="space-y-5 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-              <p>
-                I’m{" "}
-                <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                  Sourav Kumar
-                </span>
-                , an MCA student at{" "}
-                <span className="font-semibold text-gray-900 dark:text-white">
-                  BIT Mesra
-                </span>
-                , and a Full-Stack Software Engineer passionate about building
-                scalable, high-performance systems.
-              </p>
+           <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+  <p>
+    I’m{" "}
+    <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+      Sourav Kumar
+    </span>
+    , an MCA student at{" "}
+    <span className="font-semibold text-gray-900 dark:text-white">
+      BIT Mesra
+    </span>{" "}
+    and a Full-Stack Software Engineer.
+  </p>
 
-              <p>
-                I design and develop end-to-end applications — architecting
-                modern React-based frontend experiences alongside robust,
-                efficient backend systems built for performance, scalability,
-                and maintainability.
-              </p>
+  <p>
+    I build scalable, high-performance web applications — combining modern
+    React frontends with robust backend systems.
+  </p>
 
-              <p>
-                Beyond full-stack engineering, I work with{" "}
-                <span className="text-indigo-600 dark:text-indigo-400 font-medium">
-                  Machine Learning & Deep Learning
-                </span>
-                , developing AI-powered web applications that integrate
-                intelligence into real-world products.
-              </p>
+  <p>
+    I also work with{" "}
+    <span className="text-indigo-600 dark:text-indigo-400 font-medium">
+      Machine Learning & Deep Learning
+    </span>
+    to create intelligent, production-ready AI-powered products.
+  </p>
+</div>
 
-              <p>
-                My focus lies in clean architecture, modular design, and
-                building production-ready systems that balance performance with
-                elegant user experience.
-              </p>
-            </div>
           </motion.div>
 
           {/* EDUCATION */}

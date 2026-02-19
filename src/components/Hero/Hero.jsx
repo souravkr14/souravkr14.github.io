@@ -53,14 +53,13 @@ const Hero = () => {
           </h2>
 
           {/* Bio */}
-          <p className="mt-8 text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+          <p className="mt-10 text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
             MCA @{" "}
             <span className="font-semibold text-gray-900 dark:text-white">
               BIT Mesra
-            </span>
-            . Full-Stack Engineer crafting scalable frontend architectures and
-            performant backend systems. I integrate Machine Learning & Deep
-            Learning to build intelligent, production-grade web applications.
+            </span>{" "}
+            • Full-Stack Engineer specializing in scalable web systems, Machine
+            Learning, and Deep Learning–driven products.
           </p>
 
           {/* Metrics */}
