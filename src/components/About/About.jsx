@@ -63,33 +63,32 @@ const About = () => {
             variants={cardVariants}
             className={`lg:col-span-7 p-10 ${cardBase}`}
           >
-           <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-  <p>
-    I’m{" "}
-    <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-      Sourav Kumar
-    </span>
-    , an MCA student at{" "}
-    <span className="font-semibold text-gray-900 dark:text-white">
-      BIT Mesra
-    </span>{" "}
-    and a Full-Stack Software Engineer.
-  </p>
+            <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+              <p>
+                I’m{" "}
+                <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                  Sourav Kumar
+                </span>
+                , an MCA student at{" "}
+                <span className="font-semibold text-gray-900 dark:text-white">
+                  BIT Mesra
+                </span>{" "}
+                and a Full-Stack Software Engineer.
+              </p>
 
-  <p>
-    I build scalable, high-performance web applications — combining modern
-    React frontends with robust backend systems.
-  </p>
+              <p>
+                I build scalable, high-performance web applications — combining
+                modern React frontends with robust backend systems.
+              </p>
 
-  <p>
-    I also work with{" "}
-    <span className="text-indigo-600 dark:text-indigo-400 font-medium">
-      Machine Learning & Deep Learning
-    </span>
-    to create intelligent, production-ready AI-powered products.
-  </p>
-</div>
-
+              <p>
+                I also work with{" "}
+                <span className="text-indigo-600 dark:text-indigo-400 font-medium">
+                  Machine Learning & Deep Learning{" "}
+                </span>
+                 to create intelligent, production-ready AI-powered products.
+              </p>
+            </div>
           </motion.div>
 
           {/* EDUCATION */}
