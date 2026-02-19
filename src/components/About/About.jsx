@@ -22,17 +22,15 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative py-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
+      className="relative  pb-28
+ bg-white dark:bg-black overflow-hidden transition-colors duration-500"
     >
-      {/* GRID BACKGROUND */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
 
-      {/* Glow Effects */}
       <div className="absolute left-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
       <div className="absolute right-[-200px] bottom-[-150px] w-[500px] h-[500px] bg-purple-500 rounded-full blur-[160px] opacity-20"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
-        {/* ===== SECTION HEADING (CENTERED) ===== */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +84,7 @@ const About = () => {
                 <span className="text-indigo-600 dark:text-indigo-400 font-medium">
                   Machine Learning & Deep Learning{" "}
                 </span>
-                 to create intelligent, production-ready AI-powered products.
+                to create intelligent, production-ready AI-powered products.
               </p>
             </div>
           </motion.div>

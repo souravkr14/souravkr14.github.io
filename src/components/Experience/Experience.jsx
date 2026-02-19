@@ -42,17 +42,17 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="relative py-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
+      className="relative pb-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
     >
-      {/* === HERO STYLE GRID BACKGROUND === */}
+   
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
 
-      {/* Glow */}
+    
       <div className="absolute right-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
 
-        {/* ===== Section Header ===== */}
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ const Experience = () => {
           </p>
         </motion.div>
 
-        {/* Timeline vertical line (desktop only) */}
+    
         <div className="relative space-y-16">
           <div className="hidden md:block absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent opacity-30"></div>
 

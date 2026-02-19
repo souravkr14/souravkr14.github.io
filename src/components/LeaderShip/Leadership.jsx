@@ -39,7 +39,7 @@ const Leadership = () => {
   return (
     <section
       id="leadership"
-      className="relative py-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
+      className="relative pb-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
     >
       {/* HERO STYLE GRID */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
