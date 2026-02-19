@@ -9,10 +9,8 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden bg-white dark:bg-black transition-colors duration-500"
     >
-      {/* Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
 
-      {/* Glow */}
       <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
       <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-500 rounded-full blur-[140px] opacity-20"></div>
 
@@ -23,10 +21,9 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Availability */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold mb-6">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-           Namaste! Welcome to my space.
+            Namaste! Welcome to my space.
           </div>
 
           {/* Name */}
@@ -41,11 +38,11 @@ const Hero = () => {
             Designing
             <TypeAnimation
               sequence={[
-                " Scalable Frontend Systems",
+                " Scalable Full-Stack Systems",
                 2000,
-                " AI-Powered Interfaces",
+                " AI-Powered Web Applications",
                 2000,
-                " Intelligent Web Applications",
+                " Intelligent Software Products",
                 2000,
               ]}
               speed={60}
@@ -61,9 +58,9 @@ const Hero = () => {
             <span className="font-semibold text-gray-900 dark:text-white">
               BIT Mesra
             </span>
-            . Frontend-focused engineer passionate about building
-            high-performance user interfaces and integrating machine learning
-            into real-world web products.
+            . Full-Stack Engineer crafting scalable frontend architectures and
+            performant backend systems. I integrate Machine Learning & Deep
+            Learning to build intelligent, production-grade web applications.
           </p>
 
           {/* Metrics */}
