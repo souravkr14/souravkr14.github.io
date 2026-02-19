@@ -16,7 +16,6 @@ const Contact = () => {
       <div className="absolute left-[-200px] top-1/2 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
-
         {/* SECTION HEADING */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -32,17 +31,16 @@ const Contact = () => {
           </h2>
 
           <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-  Open to roles in{" "}
-  <span className="font-semibold text-gray-900 dark:text-white">
-    Full-Stack Software Engineering
-  </span>{" "}
-  and{" "}
-  <span className="font-semibold text-gray-900 dark:text-white">
-    AI & Machine Learning Systems
-  </span>
-  . Let’s build scalable, intelligent products together.
-</p>
-
+            Open to roles in{" "}
+            <span className="font-semibold text-gray-900 dark:text-white">
+              Full-Stack Software Engineering
+            </span>{" "}
+            and{" "}
+            <span className="font-semibold text-gray-900 dark:text-white">
+              AI & Machine Learning Systems
+            </span>
+            . Let’s build scalable, intelligent products together.
+          </p>
         </motion.div>
 
         {/* CONTACT CARD */}
@@ -69,9 +67,21 @@ const Contact = () => {
           {/* SOCIAL LINKS */}
           <div className="mt-14 flex justify-center gap-6 flex-wrap">
             {[
-              { href: "https://github.com/sourav-kr14", icon: <FiGithub />, label: "GitHub" },
-              { href: "https://linkedin.com/in/thesouravv", icon: <FiLinkedin />, label: "LinkedIn" },
-              { href: "https://leetcode.com/u/sourav__14/", icon: <SiLeetcode />, label: "LeetCode" },
+              {
+                href: "https://github.com/sourav-kr14",
+                icon: <FiGithub />,
+                label: "GitHub",
+              },
+              {
+                href: "https://linkedin.com/in/thesouravv",
+                icon: <FiLinkedin />,
+                label: "LinkedIn",
+              },
+              {
+                href: "https://leetcode.com/u/sourav__14/",
+                icon: <SiLeetcode />,
+                label: "LeetCode",
+              },
             ].map((social, idx) => (
               <a
                 key={idx}
