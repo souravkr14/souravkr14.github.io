@@ -73,22 +73,30 @@ const About = () => {
                 <span className="font-semibold text-gray-900 dark:text-white">
                   BIT Mesra
                 </span>
-                .
+                , and a Full-Stack Software Engineer passionate about building
+                scalable, high-performance systems.
               </p>
 
               <p>
-                I focus on building scalable, high-performance frontend systems
-                using modern React ecosystems — crafting elegant interfaces
-                backed by clean architecture.
+                I design and develop end-to-end applications — architecting
+                modern React-based frontend experiences alongside robust,
+                efficient backend systems built for performance, scalability,
+                and maintainability.
               </p>
 
               <p>
-                Alongside frontend engineering, I explore{" "}
+                Beyond full-stack engineering, I work with{" "}
                 <span className="text-indigo-600 dark:text-indigo-400 font-medium">
-                  Machine Learning
-                </span>{" "}
-                and AI-powered web applications, integrating intelligence into
-                real-world products.
+                  Machine Learning & Deep Learning
+                </span>
+                , developing AI-powered web applications that integrate
+                intelligence into real-world products.
+              </p>
+
+              <p>
+                My focus lies in clean architecture, modular design, and
+                building production-ready systems that balance performance with
+                elegant user experience.
               </p>
             </div>
           </motion.div>
