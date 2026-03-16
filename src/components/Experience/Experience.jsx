@@ -10,16 +10,65 @@ import {
 const Experience = () => {
   const experiences = [
     {
+      role: "Software Engineer Trainee",
+      company: "Revature",
+      location: "Hybrid",
+      duration: "Mar 2026 – Present",
+      current: true,
+      contributions: [
+        {
+          text: "Undergoing intensive training in ",
+          highlight: "enterprise software development",
+          suffix: " with focus on scalable backend systems.",
+        },
+        {
+          text: "Strengthening problem-solving skills through advanced ",
+          highlight: "Data Structures & Algorithms",
+          suffix: " and real-world coding challenges.",
+        },
+        {
+          text: "Developing enterprise-grade applications using ",
+          highlight: "Java, Spring ecosystem, and microservices architecture",
+          suffix: " following industry best practices.",
+        },
+        {
+          text: "Working within ",
+          highlight: "Agile development environments",
+          suffix: " and collaborative engineering workflows.",
+        },
+      ],
+      techStack: [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "DSA",
+        "Git",
+        "REST APIs",
+      ],
+    },
+    {
       role: "Software Development Engineer (Intern)",
       company: "Bluestock Fintech",
       location: "Remote",
       duration: "Dec 2025 – Jan 2026",
+      current: false,
       certificateLink:
         "https://drive.google.com/file/d/1y0NxS2ahzHCYg7PqnUTTCHxzdnFouXa7/view?usp=sharing",
       contributions: [
-        "Engineered real-time preview features and cross-section state management ensuring <span class='font-bold text-indigo-600 dark:text-indigo-400'>100%</span> data consistency across financial modules.",
-        "Designed responsive React UI dashboards, improving navigation efficiency by <span class='font-bold text-indigo-600 dark:text-indigo-400'>25%</span>.",
-        "Participated in Agile sprints and peer code reviews, delivering clean, maintainable production-ready code.",
+        {
+          text: "Engineered real-time preview features and cross-section state management ensuring ",
+          highlight: "100%",
+          suffix: " data consistency across financial modules.",
+        },
+        {
+          text: "Designed responsive React UI dashboards, improving navigation efficiency by ",
+          highlight: "25%",
+          suffix: ".",
+        },
+        {
+          text: "Participated in Agile sprints and peer code reviews, delivering clean, maintainable production-ready code.",
+          highlight: null,
+        },
       ],
       techStack: ["React", "JavaScript", "Tailwind CSS", "Git", "Node.js"],
     },
@@ -28,27 +77,56 @@ const Experience = () => {
       company: "Armus Digital",
       location: "Remote",
       duration: "June 2025 – July 2025",
+      current: false,
       certificateLink:
         "https://drive.google.com/file/d/1h8bZ00p9LNKi6W5t_wmCYQADvKwYEj8C/view?usp=sharing",
       contributions: [
-        "Developed secure authentication flows across frontend and backend layers.",
-        "Optimized rendering cycles reducing load latency by <span class='font-bold text-indigo-600 dark:text-indigo-400'>25%</span>.",
-        "Resolved full-stack defects improving overall performance by <span class='font-bold text-indigo-600 dark:text-indigo-400'>15%</span>.",
+        {
+          text: "Developed secure authentication flows across frontend and backend layers.",
+          highlight: null,
+        },
+        {
+          text: "Optimized rendering cycles reducing load latency by ",
+          highlight: "25%",
+          suffix: ".",
+        },
+        {
+          text: "Resolved full-stack defects improving overall performance by ",
+          highlight: "15%",
+          suffix: ".",
+        },
       ],
       techStack: ["React", "Node.js", "Express.js", "REST APIs", "Git"],
     },
   ];
 
+  // Renders a contribution line — no dangerouslySetInnerHTML needed
+  const Contribution = ({ item }) => (
+    <li className="flex items-start gap-4 text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+      <FiCheckCircle className="mt-1.5 text-indigo-500 flex-shrink-0 text-xl" />
+      <span>
+        {item.text}
+        {item.highlight && (
+          <span className="font-bold text-indigo-600 dark:text-indigo-400">
+            {item.highlight}
+          </span>
+        )}
+        {item.suffix ?? ""}
+      </span>
+    </li>
+  );
+
   return (
     <section
       id="experience"
-      className="relative pb-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
+      className="relative py-24 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
-
-      <div className="absolute right-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
+      {/* Background grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30" />
+      <div className="absolute right-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse" />
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +139,6 @@ const Experience = () => {
               Experience
             </span>
           </h2>
-
           <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
             Industry exposure building scalable, performance-driven web systems
             in production environments.
@@ -69,67 +146,78 @@ const Experience = () => {
         </motion.div>
 
         <div className="relative space-y-16">
-          <div className="hidden md:block absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent opacity-30"></div>
+          {/* Timeline line */}
+          <div className="hidden md:block absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent opacity-30" />
 
           {experiences.map((exp, index) => (
             <motion.div
-              key={index}
+              key={exp.company}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="relative md:pl-16"
             >
-              {/* Timeline dot */}
-              <div className="hidden md:block absolute left-0 top-3 w-5 h-5 rounded-full bg-indigo-600 border-4 border-white dark:border-black shadow-lg"></div>
+              {/* Timeline dot — pulses if current role */}
+              <div className="hidden md:flex absolute left-0 top-3 items-center justify-center">
+                {exp.current && (
+                  <span className="absolute w-5 h-5 rounded-full bg-indigo-400 opacity-60 animate-ping" />
+                )}
+                <span className="relative w-5 h-5 rounded-full bg-indigo-600 border-4 border-white dark:border-black shadow-lg block" />
+              </div>
 
-              <div className="group bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-[2rem] p-10 shadow-2xl border border-white/30 dark:border-slate-800 hover:-translate-y-2 hover:shadow-indigo-300/30 dark:hover:shadow-indigo-900/30 transition-all duration-500">
+              <div className="group bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-[2rem] p-8 md:p-10 shadow-2xl border border-white/30 dark:border-slate-800 hover:-translate-y-2 hover:shadow-indigo-300/30 dark:hover:shadow-indigo-900/30 transition-all duration-500">
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10 gap-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-10 gap-6">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                      {exp.role}
-                    </h3>
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                        {exp.role}
+                      </h3>
+                      {/* ✅ "Currently Working" badge — only on active role */}
+                      {exp.current && (
+                        <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 border border-green-200 dark:border-green-800 uppercase tracking-wide">
+                          Currently Working
+                        </span>
+                      )}
+                    </div>
 
                     <div className="flex flex-wrap items-center gap-4 mt-3">
                       <p className="text-indigo-600 dark:text-indigo-400 font-bold text-lg">
                         {exp.company}
                       </p>
-
                       <span className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600" />
-
                       <p className="text-gray-500 dark:text-gray-400 flex items-center gap-1">
                         <FiMapPin /> {exp.location}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex flex-col items-start sm:items-end gap-3">
+                  <div className="flex flex-col items-start sm:items-end gap-3 shrink-0">
                     <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-50 dark:bg-slate-800/60 border border-gray-100 dark:border-slate-700 text-gray-600 dark:text-gray-400 text-sm font-semibold">
                       <FiCalendar /> {exp.duration}
                     </div>
 
-                    <a
-                      href={exp.certificateLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
-                    >
-                      View Certificate <FiExternalLink />
-                    </a>
+                    {exp.certificateLink && (
+                      <a
+                        href={exp.certificateLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
+                      >
+                        View Certificate <FiExternalLink />
+                      </a>
+                    )}
                   </div>
                 </div>
 
-                {/* Contributions */}
+                {/* Contributions — no dangerouslySetInnerHTML */}
                 <ul className="space-y-6 mb-10">
-                  {exp.contributions.map((text, i) => (
-                    <li
+                  {exp.contributions.map((item, i) => (
+                    <Contribution
                       key={i}
-                      className="flex items-start gap-4 text-gray-700 dark:text-gray-300 leading-relaxed text-lg"
-                    >
-                      <FiCheckCircle className="mt-1.5 text-indigo-500 flex-shrink-0 text-xl" />
-                      <span dangerouslySetInnerHTML={{ __html: text }} />
-                    </li>
+                      item={item}
+                    />
                   ))}
                 </ul>
 
@@ -138,11 +226,10 @@ const Experience = () => {
                   <p className="text-xs font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-5">
                     Technologies Used
                   </p>
-
                   <div className="flex flex-wrap gap-3">
-                    {exp.techStack.map((tech, i) => (
+                    {exp.techStack.map((tech) => (
                       <span
-                        key={i}
+                        key={tech}
                         className="text-xs px-4 py-2 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-semibold border border-indigo-100/50 dark:border-indigo-800/20 hover:scale-105 transition duration-200"
                       >
                         {tech}

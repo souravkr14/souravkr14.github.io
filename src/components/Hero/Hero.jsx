@@ -54,12 +54,17 @@ const Hero = () => {
 
           {/* Bio */}
           <p className="mt-10 text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
-            MCA @{" "}
+            Software Engineer Trainee at{" "}
+            <span className="font-semibold text-gray-900 dark:text-white">
+              Revature
+            </span>{" "}
+            • MCA @{" "}
             <span className="font-semibold text-gray-900 dark:text-white">
               BIT Mesra
             </span>{" "}
-            • Full-Stack Engineer specializing in scalable web systems, Machine
-            Learning, and Deep Learning–driven products.
+            <br />
+            Building scalable web systems and intelligent AI-powered
+            applications.
           </p>
 
           {/* Metrics */}

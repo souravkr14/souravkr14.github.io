@@ -71,14 +71,19 @@ const About = () => {
                 <span className="font-semibold text-gray-900 dark:text-white">
                   BIT Mesra
                 </span>{" "}
-                and a Full-Stack Software Engineer.
+                and currently working as a{" "}
+                <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                  Software Engineer Trainee at Revature
+                </span>
+                .
               </p>
-
               <p>
                 I build scalable, high-performance web applications — combining
                 modern React frontends with robust backend systems.
               </p>
-
+              Currently undergoing enterprise-level training in Java, Data
+              Structures & Algorithms, microservices architecture, and scalable
+              backend systems.
               <p>
                 I also work with{" "}
                 <span className="text-indigo-600 dark:text-indigo-400 font-medium">
@@ -137,13 +142,13 @@ const About = () => {
               </div>
               <div>
                 <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
-                  Industry Experience
+                  Current Role
                 </p>
                 <h4 className="font-bold text-gray-900 dark:text-white mt-1">
-                  SDE Intern
+                  Software Engineer Trainee
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
-                  Bluestock Fintech
+                  Revature • 2026 – Present
                 </p>
               </div>
             </div>
@@ -193,12 +198,15 @@ const About = () => {
                 <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
                   Current Focus
                 </p>
-                <h4 className=" font-bold text-gray-900 dark:text-white mt-1">
-                  AI-Powered Web Products
+                <h4 className="font-bold text-gray-900 dark:text-white mt-1">
+                  Software Development
                 </h4>
                 <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">
-                  Deep Learning <span className="mx-1 text-gray-300">|</span>{" "}
-                  Modern Full Stack
+                  Java <span className="mx-1 text-gray-300">|</span>
+                  Microservices <span className="mx-1 text-gray-300">|</span>
+                  Full Stack <span className="mx-1 text-gray-300">|</span>
+                  Machine Learning <span className="mx-1 text-gray-300">|</span>
+                  Deep Learning
                 </p>
               </div>
             </div>
