@@ -67,7 +67,7 @@ const About = () => {
                 <span className="font-semibold text-indigo-600 dark:text-indigo-400">
                   Sourav Kumar
                 </span>
-                , an MCA student at{" "}
+                , a final year MCA student at{" "}
                 <span className="font-semibold text-gray-900 dark:text-white">
                   BIT Mesra
                 </span>{" "}
