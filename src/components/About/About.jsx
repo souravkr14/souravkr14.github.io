@@ -175,8 +175,9 @@ const About = () => {
                   Ranchi, India
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
-                  Open to Remote & Relocation
+                  IST (UTC +5:30) · Flexible working hours
                 </p>
+            
               </div>
             </div>
           </motion.div>
