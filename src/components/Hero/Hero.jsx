@@ -152,16 +152,16 @@ const Hero = () => {
           className="flex justify-center"
         >
           <div className="relative group">
-            <div className="absolute -inset-6 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-3xl blur-3xl opacity-30 group-hover:opacity-40 transition"></div>
+  <div className="absolute -inset-6 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full blur-3xl opacity-30 group-hover:opacity-40 transition"></div>
 
-            <div className="relative bg-white/30 dark:bg-slate-900/40 backdrop-blur-2xl p-4 rounded-[40px] shadow-2xl border border-white/40 dark:border-slate-800">
-              <img
-                src="/profile.jpeg"
-                alt="Sourav Kumar"
-                className="rounded-[30px] w-80 object-cover shadow-xl"
-              />
-            </div>
-          </div>
+  <div className="relative bg-white/30 dark:bg-slate-900/40 backdrop-blur-2xl p-2 rounded-full shadow-2xl border-4 border-indigo-500/50 dark:border-purple-500/50">
+    <img
+      src="/3D_Self2.png"
+      alt="Sourav Kumar"
+      className="rounded-full w-80 h-80 object-cover object-top shadow-xl"
+    />
+  </div>
+</div>
         </motion.div>
       </div>
     </section>
