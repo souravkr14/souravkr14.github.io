@@ -158,9 +158,9 @@ const Hero = () => {
     <img
       src="/3D_Self2.png"
       alt="Sourav Kumar"
-      className="rounded-full w-80 h-80 object-cover object-top shadow-xl"
+      className="rounded-full w-100 h-100 object-cover object-top shadow-xl"
     />
-  </div>
+  </div>l
 </div>
         </motion.div>
       </div>
