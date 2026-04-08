@@ -17,20 +17,22 @@ const About = () => {
   };
 
   const cardBase =
-    "relative bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-white/30 dark:border-slate-800 shadow-xl hover:shadow-indigo-300/30 dark:hover:shadow-indigo-900/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden";
+    "group relative bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-white/30 dark:border-slate-800 shadow-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl overflow-hidden";
 
   return (
     <section
       id="about"
-      className="relative  pb-28
- bg-white dark:bg-black overflow-hidden transition-colors duration-500"
+      className="relative pb-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
     >
+      {/* GRID BG */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
 
+      {/* GLOW */}
       <div className="absolute left-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
       <div className="absolute right-[-200px] bottom-[-150px] w-[500px] h-[500px] bg-purple-500 rounded-full blur-[160px] opacity-20"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,9 +52,9 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* ===== GRID CONTENT ===== */}
+        {/* GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* ABOUT CARD */}
+          {/* ABOUT */}
           <motion.div
             custom={0}
             initial="hidden"
@@ -61,7 +63,10 @@ const About = () => {
             variants={cardVariants}
             className={`lg:col-span-7 p-10 ${cardBase}`}
           >
-            <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+            {/* subtle glow on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 transition duration-500"></div>
+
+            <div className="relative space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
               <p>
                 I’m{" "}
                 <span className="font-semibold text-indigo-600 dark:text-indigo-400">
@@ -77,18 +82,23 @@ const About = () => {
                 </span>
                 .
               </p>
+
               <p>
                 I build scalable, high-performance web applications — combining
                 modern React frontends with robust backend systems.
               </p>
-              Currently undergoing enterprise-level training in Java, Data
-              Structures & Algorithms, microservices architecture, and scalable
-              backend systems.
+
+              <p>
+                Currently undergoing enterprise-level training in Java, Data
+                Structures & Algorithms, microservices architecture, and
+                scalable backend systems.
+              </p>
+
               <p>
                 I also work with{" "}
                 <span className="text-indigo-600 dark:text-indigo-400 font-medium">
-                  Machine Learning & Deep Learning{" "}
-                </span>
+                  Machine Learning & Deep Learning
+                </span>{" "}
                 to create intelligent, production-ready AI-powered products.
               </p>
             </div>
@@ -101,11 +111,11 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-5 bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-500"
+            className="lg:col-span-5 bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden group hover:-translate-y-3 transition-all duration-500"
           >
             <div className="relative z-10 space-y-8">
               <div>
-                <FiBookOpen className="text-3xl mb-4 opacity-90" />
+                <FiBookOpen className="text-3xl mb-4 opacity-90 group-hover:scale-110 transition" />
                 <h3 className="text-2xl font-bold">Education</h3>
               </div>
 
@@ -127,91 +137,60 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* INTERNSHIP */}
-          <motion.div
-            custom={2}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={cardVariants}
-            className={`lg:col-span-4 p-8 ${cardBase}`}
-          >
-            <div className="flex items-start gap-5">
-              <div className="p-4 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-2xl">
-                <FiBriefcase className="text-2xl" />
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
-                  Current Role
-                </p>
-                <h4 className="font-bold text-gray-900 dark:text-white mt-1">
-                  Software Engineer Trainee
-                </h4>
-                <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
-                  Revature • 2026 – Present
-                </p>
-              </div>
-            </div>
-          </motion.div>
+          {/* CARDS */}
+          {[
+            {
+              icon: <FiBriefcase />,
+              title: "Software Engineer Trainee",
+              subtitle: "Revature • 2026 – Present",
+              label: "Current Role",
+              color: "indigo",
+            },
+            {
+              icon: <FiMapPin />,
+              title: "Ranchi, India",
+              subtitle: "IST (UTC +5:30)",
+              label: "Location",
+              color: "red",
+            },
+            {
+              icon: <FiZap />,
+              title: "Software Development",
+              subtitle: "Java | Microservices | Full Stack | ML | DL",
+              label: "Current Focus",
+              color: "orange",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              custom={i + 2}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
+              className={`lg:col-span-4 p-8 ${cardBase}`}
+            >
+              <div className="flex items-start gap-5">
+                <div
+                  className={`p-4 rounded-2xl bg-${item.color}-100 dark:bg-${item.color}-900/40 text-${item.color}-600 dark:text-${item.color}-400 group-hover:scale-110 transition`}
+                >
+                  {item.icon}
+                </div>
 
-          {/* LOCATION */}
-          <motion.div
-            custom={3}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={cardVariants}
-            className={`lg:col-span-4 p-8 ${cardBase}`}
-          >
-            <div className="flex items-start gap-5">
-              <div className="p-4 bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 rounded-2xl">
-                <FiMapPin className="text-2xl" />
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
+                    {item.label}
+                  </p>
+                  <h4 className="font-bold text-gray-900 dark:text-white mt-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
+                    {item.subtitle}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
-                  Location
-                </p>
-                <h4 className="font-bold text-gray-900 dark:text-white mt-1">
-                  Ranchi, India
-                </h4>
-                <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
-                  IST (UTC +5:30) · Flexible working hours
-                </p>
-            
-              </div>
-            </div>
-          </motion.div>
-
-          {/* FOCUS */}
-          <motion.div
-            custom={4}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={cardVariants}
-            className={`lg:col-span-4 p-8 ${cardBase}`}
-          >
-            <div className="flex items-start gap-5">
-              <div className="p-4 bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 rounded-2xl">
-                <FiZap className="text-2xl" />
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
-                  Current Focus
-                </p>
-                <h4 className="font-bold text-gray-900 dark:text-white mt-1">
-                  Software Development
-                </h4>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">
-                  Java <span className="mx-1 text-gray-300">|</span>
-                  Microservices <span className="mx-1 text-gray-300">|</span>
-                  Full Stack <span className="mx-1 text-gray-300">|</span>
-                  Machine Learning <span className="mx-1 text-gray-300">|</span>
-                  Deep Learning
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

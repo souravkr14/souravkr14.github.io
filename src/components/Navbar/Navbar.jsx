@@ -20,10 +20,12 @@ const Navbar = () => {
 
   const { scrollYProgress } = useScroll();
 
-  // Dark Mode Init
+  // DARK MODE INIT
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
     const initialDark = saved ? saved === "dark" : prefersDark;
     setIsDark(initialDark);
   }, []);
@@ -39,7 +41,7 @@ const Navbar = () => {
     }
   }, [isDark]);
 
-  // Hide on scroll down, show on scroll up
+  // SCROLL VISIBILITY
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY.current && window.scrollY > 120) {
@@ -54,11 +56,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Auto active section
+  // ACTIVE SECTION
   useEffect(() => {
-    const sections = navMenus.map((item) =>
-      document.getElementById(item.id)
-    );
+    const sections = navMenus.map((item) => document.getElementById(item.id));
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -68,7 +68,7 @@ const Navbar = () => {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 },
     );
 
     sections.forEach((section) => {
@@ -80,109 +80,125 @@ const Navbar = () => {
 
   return (
     <>
-      {/* SCROLL PROGRESS BAR */}
+      {/* 🔥 SCROLL PROGRESS BAR */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-indigo-600 origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-[60]"
         style={{ scaleX: scrollYProgress }}
       />
 
       <AnimatePresence>
         {visible && (
           <motion.nav
-            initial={{ y: -100 }}
+            initial={{ y: -120 }}
             animate={{ y: 0 }}
-            exit={{ y: -100 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-gray-100 dark:border-slate-800"
+            exit={{ y: -120 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] md:w-[85%] z-50
+            bg-white/10 dark:bg-slate-900/20
+            backdrop-blur-2xl
+            border border-white/20 dark:border-white/10
+            shadow-[0_8px_32px_rgba(0,0,0,0.2)]
+            rounded-2xl"
           >
-            <div className="container mx-auto px-6 md:w-[85%] py-4 flex items-center justify-between">
-
-              {/* LOGO */}
+            <div className="px-6 py-3 flex items-center justify-between">
+              {/* 🌈 LOGO */}
               <motion.a
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 href="#home"
-                className="text-2xl font-black text-gray-900 dark:text-white"
+                className="text-2xl font-black bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide"
               >
-                Sourav<span className="text-indigo-600">.</span>
+                Sourav<span className="text-white">.</span>
               </motion.a>
 
-              {/* DESKTOP MENU */}
-              <ul className="hidden md:flex items-center gap-8">
+              {/* 💎 DESKTOP MENU */}
+              <ul className="hidden md:flex items-center gap-3 bg-white/10 dark:bg-white/5 px-4 py-2 rounded-full backdrop-blur-xl">
                 {navMenus.map((item) => (
                   <li key={item.id} className="relative">
                     <a
                       href={item.link}
-                      className={`text-sm font-semibold transition-colors ${
+                      className={`relative px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300
+                      ${
                         active === item.id
-                          ? "text-indigo-600 dark:text-indigo-400"
-                          : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                          ? "text-white"
+                          : "text-gray-700 dark:text-gray-300 hover:text-white"
                       }`}
                     >
                       {item.name}
-                    </a>
 
-                    {active === item.id && (
-                      <motion.div
-                        layoutId="underline"
-                        className="absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-600 dark:bg-indigo-400 rounded-full"
-                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                      />
-                    )}
+                      {active === item.id && (
+                        <motion.span
+                          layoutId="pill"
+                          className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full -z-10 shadow-lg"
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 30,
+                          }}
+                        />
+                      )}
+                    </a>
                   </li>
                 ))}
               </ul>
 
-              {/* RIGHT SIDE */}
-              <div className="flex items-center gap-4">
-
-                {/* DARK MODE */}
-                <button
+              {/* ⚡ RIGHT SIDE (FIXED) */}
+              <div className="flex items-center gap-2 md:gap-3">
+                {/* 🌙 DARK MODE */}
+                <motion.button
+                  whileTap={{ rotate: 180 }}
                   onClick={() => setIsDark(!isDark)}
-                  className="p-2.5 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-yellow-400 hover:scale-110 transition-all active:scale-90"
+                  className="flex items-center justify-center h-10 w-10 rounded-xl
+                  bg-white/20 dark:bg-white/10 backdrop-blur-md
+                  border border-white/20 dark:border-white/10
+                  hover:scale-110 transition-all"
                 >
-                  {isDark ? <FiSun /> : <FiMoon />}
-                </button>
+                  {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+                </motion.button>
 
-                {/* CTA */}
+                {/* 🚀 CTA */}
                 <div className="hidden md:block">
                   <a
                     href="#contact"
-                    className="bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-indigo-700 transition-all active:scale-95"
+                    className="flex items-center justify-center h-10 px-5 rounded-xl
+                    font-semibold text-sm text-white
+                    bg-gradient-to-r from-indigo-500 to-purple-600
+                    shadow-md hover:shadow-lg
+                    transition-all duration-300"
                   >
                     Let’s Talk
                   </a>
                 </div>
 
-                {/* MOBILE */}
+                {/* 📱 MOBILE */}
                 <button
                   onClick={() => setOpen(!open)}
-                  className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-xl text-gray-800 dark:text-white"
+                  className="md:hidden flex items-center justify-center h-10 w-10 rounded-xl
+                  bg-white/20 dark:bg-white/10 text-xl"
                 >
                   {open ? <FiX /> : <FiMenu />}
                 </button>
               </div>
             </div>
 
-            {/* MOBILE MENU */}
+            {/* 📱 MOBILE MENU */}
             <AnimatePresence>
               {open && (
                 <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-gray-100 dark:border-slate-800"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="md:hidden px-6 pb-6"
                 >
-                  <ul className="flex flex-col px-6 py-6 gap-4">
+                  <ul className="flex flex-col gap-3">
                     {navMenus.map((item) => (
                       <li key={item.id}>
                         <a
                           href={item.link}
                           onClick={() => setOpen(false)}
-                          className={`block text-lg font-semibold ${
+                          className={`block px-4 py-2 rounded-lg font-semibold ${
                             active === item.id
-                              ? "text-indigo-600 dark:text-indigo-400"
+                              ? "bg-indigo-500 text-white"
                               : "text-gray-700 dark:text-gray-300"
                           }`}
                         >
@@ -194,7 +210,6 @@ const Navbar = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-
           </motion.nav>
         )}
       </AnimatePresence>

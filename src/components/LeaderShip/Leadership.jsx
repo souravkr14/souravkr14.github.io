@@ -6,6 +6,7 @@ const leadership = [
   {
     title: "Club Administrator",
     org: "ALFA Coding Club",
+    institution: "TIPS, Dwarka, New Delhi",
     icon: <FiUsers />,
     points: [
       "Led Web Development workshop for 50+ students",
@@ -41,15 +42,14 @@ const Leadership = () => {
       id="leadership"
       className="relative pb-28 bg-white dark:bg-black overflow-hidden transition-colors duration-500"
     >
-      {/* HERO STYLE GRID */}
+      {/* GRID BACKGROUND */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
 
-      {/* Glow */}
+      {/* GLOW */}
       <div className="absolute left-[-200px] top-1/2 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
-
-        {/* SECTION HEADING */}
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,8 +64,8 @@ const Leadership = () => {
           </h2>
 
           <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-            Ownership, collaboration, and initiative beyond individual
-            technical contributions.
+            Ownership, collaboration, and initiative beyond individual technical
+            contributions.
           </p>
         </motion.div>
 
@@ -80,21 +80,30 @@ const Leadership = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl rounded-[2rem] p-10 shadow-2xl border border-white/30 dark:border-slate-800 hover:-translate-y-3 hover:shadow-indigo-300/30 dark:hover:shadow-indigo-900/30 transition-all duration-500"
             >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-300">
+              {/* ICON */}
+              <div className="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                 {item.icon}
               </div>
 
-              {/* Title */}
+              {/* TITLE */}
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                 {item.title}
               </h3>
 
-              <p className="text-indigo-600 dark:text-indigo-400 font-semibold mb-8 text-sm tracking-wide">
-                {item.org}
-              </p>
+              {/* ORG + INSTITUTION */}
+              <div className="mb-6">
+                <p className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm tracking-wide">
+                  {item.org}
+                </p>
 
-              {/* Points */}
+                {item.institution && (
+                  <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+                    {item.institution}
+                  </p>
+                )}
+              </div>
+
+              {/* POINTS */}
               <ul className="space-y-5 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 {item.points.map((point, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -103,11 +112,9 @@ const Leadership = () => {
                   </li>
                 ))}
               </ul>
-
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );
