@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
-import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
+import { FiMenu, FiX, FiSun, FiMoon, FiArrowUpRight } from "react-icons/fi";
 
 const navMenus = [
   { name: "Home", link: "#home", id: "home" },
@@ -20,7 +20,6 @@ const Navbar = () => {
 
   const { scrollYProgress } = useScroll();
 
-  // DARK MODE INIT
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
@@ -41,7 +40,6 @@ const Navbar = () => {
     }
   }, [isDark]);
 
-  // SCROLL VISIBILITY
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY.current && window.scrollY > 120) {
@@ -56,7 +54,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ACTIVE SECTION
   useEffect(() => {
     const sections = navMenus.map((item) => document.getElementById(item.id));
 
@@ -80,136 +77,132 @@ const Navbar = () => {
 
   return (
     <>
-      {/* 🔥 SCROLL PROGRESS BAR */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-[60]"
+        className="fixed left-0 right-0 top-0 z-[70] h-[3px] origin-left bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"
         style={{ scaleX: scrollYProgress }}
       />
 
       <AnimatePresence>
         {visible && (
           <motion.nav
-            initial={{ y: -120 }}
-            animate={{ y: 0 }}
-            exit={{ y: -120 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] md:w-[85%] z-50
-            bg-white/10 dark:bg-slate-900/20
-            backdrop-blur-2xl
-            border border-white/20 dark:border-white/10
-            shadow-[0_8px_32px_rgba(0,0,0,0.2)]
-            rounded-2xl"
+            initial={{ y: -120, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -120, opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="fixed left-1/2 top-4 z-50 w-[94%] -translate-x-1/2 md:w-[88%] xl:w-[82%]"
           >
-            <div className="px-6 py-3 flex items-center justify-between">
-              {/* 🌈 LOGO */}
-              <motion.a
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                href="#home"
-                className="text-2xl font-black bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide"
-              >
-                Sourav<span className="text-white">.</span>
-              </motion.a>
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/55 shadow-[0_20px_60px_rgba(15,23,42,0.12)] backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/55">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-indigo-500/10 dark:from-white/5 dark:to-indigo-500/10" />
 
-              {/* 💎 DESKTOP MENU */}
-              <ul className="hidden md:flex items-center gap-3 bg-white/10 dark:bg-white/5 px-4 py-2 rounded-full backdrop-blur-xl">
-                {navMenus.map((item) => (
-                  <li key={item.id} className="relative">
-                    <a
-                      href={item.link}
-                      className={`relative px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300
-                      ${
-                        active === item.id
-                          ? "text-white"
-                          : "text-gray-700 dark:text-gray-300 hover:text-white"
-                      }`}
-                    >
-                      {item.name}
-
-                      {active === item.id && (
-                        <motion.span
-                          layoutId="pill"
-                          className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full -z-10 shadow-lg"
-                          transition={{
-                            type: "spring",
-                            stiffness: 400,
-                            damping: 30,
-                          }}
-                        />
-                      )}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-
-              {/* ⚡ RIGHT SIDE (FIXED) */}
-              <div className="flex items-center gap-2 md:gap-3">
-                {/* 🌙 DARK MODE */}
-                <motion.button
-                  whileTap={{ rotate: 180 }}
-                  onClick={() => setIsDark(!isDark)}
-                  className="flex items-center justify-center h-10 w-10 rounded-xl
-                  bg-white/20 dark:bg-white/10 backdrop-blur-md
-                  border border-white/20 dark:border-white/10
-                  hover:scale-110 transition-all"
+              <div className="relative flex items-center justify-between px-4 py-3 md:px-6">
+                <motion.a
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  href="#home"
+                  className="text-2xl font-black tracking-tight"
                 >
-                  {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
-                </motion.button>
+                  <span className="bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
+                    Sourav
+                  </span>
+                  <span className="text-slate-900 dark:text-white">.</span>
+                </motion.a>
 
-                {/* 🚀 CTA */}
-                <div className="hidden md:block">
+                <ul className="hidden items-center gap-2 rounded-full border border-white/20 bg-white/50 px-3 py-2 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 lg:flex">
+                  {navMenus.map((item) => (
+                    <li key={item.id} className="relative">
+                      <a
+                        href={item.link}
+                        className={`relative block rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
+                          active === item.id
+                            ? "text-white"
+                            : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+                        }`}
+                      >
+                        {item.name}
+
+                        {active === item.id && (
+                          <motion.span
+                            layoutId="nav-pill"
+                            className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 shadow-lg shadow-indigo-900/20"
+                            transition={{
+                              type: "spring",
+                              stiffness: 380,
+                              damping: 30,
+                            }}
+                          />
+                        )}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex items-center gap-2 md:gap-3">
+                  <motion.button
+                    whileTap={{ rotate: 180, scale: 0.95 }}
+                    onClick={() => setIsDark(!isDark)}
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/50 text-slate-700 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+                    aria-label="Toggle theme"
+                  >
+                    {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+                  </motion.button>
+
                   <a
                     href="#contact"
-                    className="flex items-center justify-center h-10 px-5 rounded-xl
-                    font-semibold text-sm text-white
-                    bg-gradient-to-r from-indigo-500 to-purple-600
-                    shadow-md hover:shadow-lg
-                    transition-all duration-300"
+                    className="hidden h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-500 px-5 text-sm font-semibold text-white shadow-lg shadow-indigo-900/20 transition duration-300 hover:scale-[1.02] md:inline-flex"
                   >
-                    Let’s Talk
+                    Let&apos;s Talk
+                    <FiArrowUpRight />
                   </a>
+
+                  <button
+                    onClick={() => setOpen(!open)}
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/50 text-xl text-slate-700 backdrop-blur-md transition-all duration-300 hover:scale-105 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 lg:hidden"
+                    aria-label="Toggle menu"
+                  >
+                    {open ? <FiX /> : <FiMenu />}
+                  </button>
                 </div>
-
-                {/* 📱 MOBILE */}
-                <button
-                  onClick={() => setOpen(!open)}
-                  className="md:hidden flex items-center justify-center h-10 w-10 rounded-xl
-                  bg-white/20 dark:bg-white/10 text-xl"
-                >
-                  {open ? <FiX /> : <FiMenu />}
-                </button>
               </div>
-            </div>
 
-            {/* 📱 MOBILE MENU */}
-            <AnimatePresence>
-              {open && (
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  className="md:hidden px-6 pb-6"
-                >
-                  <ul className="flex flex-col gap-3">
-                    {navMenus.map((item) => (
-                      <li key={item.id}>
-                        <a
-                          href={item.link}
-                          onClick={() => setOpen(false)}
-                          className={`block px-4 py-2 rounded-lg font-semibold ${
-                            active === item.id
-                              ? "bg-indigo-500 text-white"
-                              : "text-gray-700 dark:text-gray-300"
-                          }`}
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-            </AnimatePresence>
+              <AnimatePresence>
+                {open && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -18 }}
+                    transition={{ duration: 0.25 }}
+                    className="relative border-t border-white/15 px-4 pb-4 pt-3 dark:border-white/10 lg:hidden"
+                  >
+                    <ul className="flex flex-col gap-2">
+                      {navMenus.map((item) => (
+                        <li key={item.id}>
+                          <a
+                            href={item.link}
+                            onClick={() => setOpen(false)}
+                            className={`block rounded-2xl px-4 py-3 text-sm font-semibold transition-all duration-300 ${
+                              active === item.id
+                                ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
+                                : "bg-white/40 text-slate-700 hover:bg-indigo-500 hover:text-white dark:bg-white/5 dark:text-slate-300"
+                            }`}
+                          >
+                            {item.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href="#contact"
+                      onClick={() => setOpen(false)}
+                      className="mt-3 flex h-12 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-500 text-sm font-semibold text-white shadow-lg shadow-indigo-900/20"
+                    >
+                      Let&apos;s Talk
+                      <FiArrowUpRight />
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>

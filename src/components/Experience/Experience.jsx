@@ -70,12 +70,15 @@ const Experience = () => {
   ];
 
   const Contribution = ({ item }) => (
-    <li className="flex items-start gap-4 text-gray-700 dark:text-gray-300 text-lg">
-      <FiCheckCircle className="mt-1 text-indigo-500 text-xl" />
+    <li className="flex items-start gap-4 text-base leading-7 text-slate-700 dark:text-slate-300">
+      <span className="mt-1 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500/10 text-indigo-500 dark:text-indigo-300">
+        <FiCheckCircle className="text-sm" />
+      </span>
+
       <span>
         {item.text}
         {item.highlight && (
-          <span className="font-bold text-indigo-600 dark:text-indigo-400">
+          <span className="font-semibold text-indigo-600 dark:text-indigo-300">
             {item.highlight}
           </span>
         )}
@@ -85,85 +88,118 @@ const Experience = () => {
   );
 
   return (
-    <section className="relative py-24 bg-white dark:bg-black overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 opacity-30 bg-grid-pattern" />
-
-      {/* Glow */}
-      <div className="absolute right-[-200px] top-1/3 w-[500px] h-[500px] bg-indigo-500 blur-[160px] opacity-20" />
+    <section
+      id="experience"
+      className="relative overflow-hidden bg-white py-10 dark:bg-[#040816]"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
+      <div className="absolute left-[-200px] top-1/2 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
 
       <div className="relative container mx-auto px-6 md:w-[85%]">
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-20"
+          viewport={{ once: true, amount: 0.3 }}
+          className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <h2 className="text-5xl font-black bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-            Experience
+          {/* <span className="inline-flex rounded-full border border-indigo-400/20 bg-indigo-500/10 px-4 py-1 text-sm font-medium text-indigo-300">
+            Professional journey
+          </span> */}
+
+          <h2 className="mt-6 text-4xl font-black sm:text-5xl md:text-6xl">
+            <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+              Experience
+            </span>
           </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
+            Building strong engineering fundamentals through hands-on product
+            work, backend systems, and collaborative development environments.
+          </p>
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative space-y-16">
-          {/* STRONGER TIMELINE */}
-          <div className="hidden md:block absolute left-6 top-0 bottom-0 w-[3px] bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent opacity-50" />
+        <div className="relative space-y-10">
+          <div className="absolute left-4 top-0 hidden h-full w-px bg-gradient-to-b from-indigo-500/70 via-violet-400/40 to-transparent md:block" />
 
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 45 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55, delay: index * 0.12 }}
               className="relative md:pl-16"
             >
               {/* Timeline Dot */}
-              <div className="hidden md:flex absolute left-0 top-4">
-                <span className="w-5 h-5 rounded-full bg-indigo-600 shadow-lg animate-pulse" />
+              <div className="absolute left-0 top-10 hidden md:flex">
+                <span className="h-8 w-8 rounded-full border border-indigo-400/30 bg-[#0b1124] shadow-[0_0_0_6px_rgba(99,102,241,0.08)]" />
               </div>
 
-              {/* CARD */}
-              <div
-                className="group relative p-10 rounded-[2rem]
-                bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl
-                border border-white/20 dark:border-slate-800
-                shadow-2xl hover:-translate-y-3 transition duration-500"
-              >
-                {/* Hover Glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-[2rem] transition" />
+              {/* Card */}
+              <div className="group relative overflow-hidden rounded-[2rem] border border-white/20 bg-white/50 p-8 shadow-[0_20px_60px_rgba(15,23,42,0.10)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_28px_80px_rgba(99,102,241,0.18)] dark:border-white/10 dark:bg-slate-900/45 md:p-10">
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10 opacity-0 transition duration-500 group-hover:opacity-100" />
 
                 <div className="relative">
                   {/* Header */}
-                  <div className="flex justify-between mb-8">
+                  <div className="mb-8 flex flex-col gap-6 border-b border-slate-200/70 pb-8 dark:border-white/10 lg:flex-row lg:items-start lg:justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold">{exp.role}</h3>
-                      <p className="text-indigo-500 font-semibold">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                          {exp.role}
+                        </h3>
+
+                        {exp.current && (
+                          <span className="rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-400">
+                            Current
+                          </span>
+                        )}
+                      </div>
+
+                      <p className="mt-3 text-base font-semibold text-indigo-600 dark:text-indigo-300">
                         {exp.company}
                       </p>
+
+                      <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+                        <span className="flex items-center gap-2">
+                          <FiCalendar className="text-indigo-400" />
+                          {exp.duration}
+                        </span>
+
+                        <span className="flex items-center gap-2">
+                          <FiMapPin className="text-indigo-400" />
+                          {exp.location}
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="text-sm text-gray-500 flex items-center gap-2">
-                      <FiCalendar /> {exp.duration}
-                    </div>
+                    {exp.certificateLink && (
+                      <a
+                        href={exp.certificateLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/70 px-5 text-sm font-medium text-slate-800 transition duration-300 hover:border-indigo-400/30 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-slate-800/70 dark:text-slate-200"
+                      >
+                        Certificate
+                        <FiExternalLink />
+                      </a>
+                    )}
                   </div>
 
                   {/* Contributions */}
-                  <ul className="space-y-4 mb-8">
+                  <ul className="mb-8 space-y-4">
                     {exp.contributions.map((c, i) => (
                       <Contribution key={i} item={c} />
                     ))}
                   </ul>
 
                   {/* Tech */}
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2">
                     {exp.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-4 py-2 text-xs font-semibold rounded-xl
-                        bg-white/60 dark:bg-slate-800/60
-                        border border-white/20 dark:border-slate-700
-                        hover:scale-105 hover:bg-indigo-500 hover:text-white
-                        transition-all duration-300"
+                        className="rounded-full border border-white/20 bg-white/70 px-4 py-2 text-xs font-medium text-slate-700 transition duration-300 hover:border-indigo-400/30 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-slate-800/70 dark:text-slate-300"
                       >
                         {tech}
                       </span>

@@ -1,190 +1,187 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail, FiArrowRight } from "react-icons/fi";
 
 const Hero = () => {
+  const stats = [
+    { value: "150+", label: "DSA Problems" },
+    { value: "2", label: "Internships" },
+    { value: "4+", label: "Web & AI Projects" },
+  ];
+
+  const techStack = [
+    "Java",
+    "Python",
+    "React",
+    "Node.js",
+    "Express.js",
+    "Machine Learning",
+    "Deep Learning",
+  ];
+
+  const socials = [
+    {
+      icon: <FiGithub />,
+      link: "https://github.com/sourav-kr14",
+      label: "GitHub",
+    },
+    {
+      icon: <FiLinkedin />,
+      link: "https://www.linkedin.com/in/thesouravv/",
+      label: "LinkedIn",
+    },
+    { icon: <FiMail />, link: "mailto:souravkr93@gmail.com", label: "Email" },
+  ];
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-white dark:bg-black transition-colors duration-500"
+      className="relative flex min-h-screen items-center overflow-hidden bg-white py-24 dark:bg-[#040816]"
     >
-      {/* GRID BACKGROUND */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.16] dark:opacity-[0.12]" />
+      <div className="absolute right-[-180px] top-[-80px] h-[420px] w-[420px] rounded-full bg-violet-500/20 blur-[140px]" />
+      <div className="absolute left-[-160px] bottom-[-100px] h-[360px] w-[360px] rounded-full bg-indigo-500/20 blur-[140px]" />
 
-      {/* GLOW BLOBS */}
-      <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-500 rounded-full blur-[140px] opacity-20"></div>
-
-      <div className="relative container mx-auto px-6 md:w-[85%] grid md:grid-cols-2 gap-16 items-center">
-        {/* LEFT CONTENT */}
+      <div className="relative container mx-auto grid items-center gap-16 px-6 md:w-[85%] lg:grid-cols-[1.2fr_0.8fr]">
+        {/* Left */}
         <div>
-          {/* BADGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold mb-6"
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-emerald-400"
           >
-            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+            <span className="h-2 w-2 rounded-full bg-emerald-400" />
             Namaste! Welcome to my space.
-          </motion.div>
+          </motion.div> */}
 
-          {/* NAME */}
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-5xl sm:text-7xl font-black tracking-tight leading-tight"
+            className="mt-8 text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl"
           >
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Sourav Kumar
+            <span className="block text-slate-900 dark:text-white">Sourav</span>
+            <span className="block bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+              Kumar
             </span>
           </motion.h1>
 
-          {/* DYNAMIC TITLE */}
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
+          <motion.div
+            initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-2xl sm:text-3xl mt-6 font-bold text-gray-700 dark:text-gray-300 h-[40px]"
+            className="mt-6 text-2xl font-bold text-slate-700 dark:text-slate-300 sm:text-3xl"
           >
-            Designing
+            Building
             <TypeAnimation
               sequence={[
-                " Scalable Full-Stack Systems",
+                " scalable full-stack systems",
                 2000,
-                " AI-Powered Web Applications",
+                " AI-powered web applications",
                 2000,
-                " Intelligent Software Products",
+                " intelligent software products",
                 2000,
               ]}
               speed={60}
               repeat={Infinity}
               wrapper="span"
-              className="text-indigo-600 dark:text-indigo-400 ml-2"
+              className="ml-2 text-indigo-600 dark:text-indigo-300"
             />
-          </motion.h2>
-
-          {/* BIO */}
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-10 text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed"
-          >
-            Software Engineer Trainee at{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
-              Revature
-            </span>{" "}
-            • MCA @{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
-              BIT Mesra
-            </span>{" "}
-            <br />
-            Building scalable web systems and intelligent AI-powered
-            applications.
-          </motion.p>
-
-          {/* METRICS */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex gap-10 mt-10 text-center"
-          >
-            <div>
-              <p className="text-3xl font-extrabold text-indigo-600">150+</p>
-              <p className="text-sm text-gray-500">DSA Problems</p>
-            </div>
-            <div>
-              <p className="text-3xl font-extrabold text-indigo-600">2</p>
-              <p className="text-sm text-gray-500">Internships</p>
-            </div>
-            <div>
-              <p className="text-3xl font-extrabold text-indigo-600">4+</p>
-              <p className="text-sm text-gray-500">Web & AI Projects</p>
-            </div>
           </motion.div>
 
-          {/* TECH STACK */}
+          <motion.p
+            initial={{ opacity: 0, y: 34 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-8 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400"
+          >
+            Software Engineer Trainee at{" "}
+            <span className="font-semibold text-slate-900 dark:text-white">
+              Revature
+            </span>{" "}
+            and MCA student at{" "}
+            <span className="font-semibold text-slate-900 dark:text-white">
+              BIT Mesra
+            </span>
+            . I focus on scalable backend systems, modern web apps, and
+            practical AI-powered products.
+          </motion.p>
+
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 34 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-10 grid max-w-2xl grid-cols-3 gap-4"
+          >
+            {stats.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-white/20 bg-white/50 p-5 text-center shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/45"
+              >
+                <p className="text-3xl font-extrabold text-indigo-600 dark:text-indigo-300">
+                  {item.value}
+                </p>
+                <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap gap-3 mt-8"
+            className="mt-8 flex max-w-2xl flex-wrap gap-3"
           >
-            {[
-              "Java",
-              "Python",
-              "React",
-              "Node.js",
-              "Express.js",
-              "Machine Learning",
-              "Deep Learning",
-            ].map((tech) => (
+            {techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-4 py-2 text-xs font-semibold bg-gray-100 dark:bg-slate-800 rounded-full text-gray-700 dark:text-gray-300 shadow-sm"
+                className="rounded-full border border-white/20 bg-white/70 px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm backdrop-blur-md transition duration-300 hover:border-indigo-400/30 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-slate-800/70 dark:text-slate-300"
               >
                 {tech}
               </span>
             ))}
           </motion.div>
 
-          {/* CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="flex gap-4 mt-12 flex-wrap"
+            className="mt-12 flex flex-wrap gap-4"
           >
             <a
               href="#projects"
-              className="flex items-center justify-center px-8 h-12 rounded-xl
-              bg-gradient-to-r from-indigo-500 to-purple-600
-              text-white font-semibold shadow-md
-              hover:shadow-lg hover:-translate-y-1
-              transition-all duration-300"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-8 text-sm font-semibold text-white shadow-lg shadow-indigo-900/20 transition duration-300 hover:scale-[1.02]"
             >
               View Projects
+              <FiArrowRight />
             </a>
 
             <a
               href="/Sourav_Kumar_Resume.pdf"
               download
-              className="flex items-center justify-center px-8 h-12 rounded-xl
-              border border-indigo-500 text-indigo-600 dark:text-indigo-400
-              hover:bg-indigo-50 dark:hover:bg-slate-800
-              hover:-translate-y-1 transition-all duration-300"
+              className="inline-flex h-12 items-center justify-center rounded-xl border border-indigo-400/30 bg-white/60 px-8 text-sm font-semibold text-indigo-600 backdrop-blur-md transition duration-300 hover:bg-indigo-50 dark:bg-slate-900/45 dark:text-indigo-300 dark:hover:bg-slate-800"
             >
               Download Resume
             </a>
           </motion.div>
 
-          {/* SOCIAL ICONS */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
             className="mt-12 flex gap-4 text-xl"
           >
-            {[
-              { icon: <FiGithub />, link: "https://github.com/sourav-kr14" },
-              {
-                icon: <FiLinkedin />,
-                link: "https://www.linkedin.com/in/thesouravv/",
-              },
-              { icon: <FiMail />, link: "mailto:souravkr93@gmail.com" },
-            ].map((item, i) => (
+            {socials.map((item) => (
               <a
-                key={i}
+                key={item.label}
                 href={item.link}
-                className="flex items-center justify-center w-12 h-12 rounded-xl
-                bg-white/20 dark:bg-white/10 backdrop-blur-md
-                border border-white/20 dark:border-white/10
-                hover:scale-110 hover:bg-indigo-500 hover:text-white
-                transition-all duration-300"
+                aria-label={item.label}
+                className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/50 text-slate-700 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-slate-900/45 dark:text-slate-300"
               >
                 {item.icon}
               </a>
@@ -192,23 +189,23 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* RIGHT IMAGE */}
+        {/* Right */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="flex justify-center"
+          transition={{ duration: 0.9 }}
+          className="flex justify-center lg:justify-end"
         >
-          <div className="relative group">
-            {/* GLOW */}
-            <div className="absolute -inset-8 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition duration-500"></div>
+          <div className="group relative">
+            <div className="absolute -inset-10 rounded-full bg-gradient-to-tr from-indigo-500/30 via-violet-500/20 to-fuchsia-500/30 blur-3xl transition duration-500 group-hover:opacity-90" />
 
-            {/* IMAGE */}
-            <div className="relative bg-white/30 dark:bg-slate-900/40 backdrop-blur-2xl p-2 rounded-full shadow-2xl border border-white/20 dark:border-white/10">
+            <div className="relative rounded-full border border-white/20 bg-white/50 p-3 shadow-[0_30px_90px_rgba(15,23,42,0.18)] backdrop-blur-2xl dark:border-white/10 dark:bg-slate-900/45">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 via-transparent to-indigo-500/10" />
+
               <img
                 src="/3D_Self2.png"
                 alt="Sourav Kumar"
-                className="rounded-full w-[320px] h-[320px] object-cover object-top"
+                className="relative h-[320px] w-[320px] rounded-full object-cover object-top sm:h-[380px] sm:w-[380px]"
               />
             </div>
           </div>
