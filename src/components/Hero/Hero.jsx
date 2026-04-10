@@ -25,13 +25,21 @@ const Hero = () => {
       icon: <FiGithub />,
       link: "https://github.com/sourav-kr14",
       label: "GitHub",
+      hoverClass:
+        "hover:bg-slate-900 hover:text-white hover:border-slate-900 dark:hover:bg-white dark:hover:text-slate-900 dark:hover:border-white",
     },
     {
       icon: <FiLinkedin />,
       link: "https://www.linkedin.com/in/thesouravv/",
       label: "LinkedIn",
+      hoverClass: "hover:bg-blue-600 hover:text-white hover:border-blue-600",
     },
-    { icon: <FiMail />, link: "mailto:souravkr93@gmail.com", label: "Email" },
+    {
+      icon: <FiMail />,
+      link: "mailto:souravkr93@gmail.com",
+      label: "Email",
+      hoverClass: "hover:bg-red-400 hover:text-white hover:border-red-400",
+    },
   ];
 
   return (
@@ -56,7 +64,6 @@ const Hero = () => {
             <span className="h-2 w-2 rounded-full bg-emerald-400" />
             Namaste! Welcome to my space.
           </motion.div> */}
-
           <motion.h1
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,7 +75,6 @@ const Hero = () => {
               Kumar
             </span>
           </motion.h1>
-
           <motion.div
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,7 +97,6 @@ const Hero = () => {
               className="ml-2 text-indigo-600 dark:text-indigo-300"
             />
           </motion.div>
-
           <motion.p
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
@@ -109,7 +114,6 @@ const Hero = () => {
             . I focus on scalable backend systems, modern web apps, and
             practical AI-powered products.
           </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
@@ -130,7 +134,6 @@ const Hero = () => {
               </div>
             ))}
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,7 +149,6 @@ const Hero = () => {
               </span>
             ))}
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
@@ -169,7 +171,6 @@ const Hero = () => {
               Download Resume
             </a>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,7 +182,7 @@ const Hero = () => {
                 key={item.label}
                 href={item.link}
                 aria-label={item.label}
-                className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/50 text-slate-700 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-slate-900/45 dark:text-slate-300"
+                className={`flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/50 text-slate-700 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 dark:border-white/10 dark:bg-slate-900/45 dark:text-slate-300 ${item.hoverClass}`}
               >
                 {item.icon}
               </a>
