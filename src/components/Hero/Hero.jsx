@@ -36,7 +36,7 @@ const Hero = () => {
     },
     {
       icon: <FiMail />,
-      link: "mailto:souravkr93@gmail.com",
+      link: "mailto:krsourav.dev@gmail.com@gmail.com",
       label: "Email",
       hoverClass: "hover:bg-red-400 hover:text-white hover:border-red-400",
     },

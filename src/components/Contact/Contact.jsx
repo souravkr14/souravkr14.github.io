@@ -108,7 +108,7 @@ const Contact = () => {
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href="mailto:souravkr93@gmail.com"
+                href="mailto:krsourav.dev@gmail.com"
                 className="inline-flex h-14 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 px-8 text-sm font-semibold text-white shadow-lg shadow-indigo-900/30 transition duration-300 hover:scale-[1.02]"
               >
                 <FiMail className="text-lg" />
@@ -141,10 +141,10 @@ const Contact = () => {
                     Email
                   </p>
                   <a
-                    href="mailto:souravkr93@gmail.com"
+                    href="mailto:krsourav.dev@gmail.com"
                     className="mt-2 block text-base font-medium text-white transition hover:text-indigo-300"
                   >
-                    souravkr93@gmail.com
+                    krsourav.dev@gmail.com
                   </a>
                 </div>
 
