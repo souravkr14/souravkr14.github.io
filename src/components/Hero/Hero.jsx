@@ -48,9 +48,9 @@ const Hero = () => {
       className="relative flex min-h-screen items-center overflow-hidden bg-white py-24 dark:bg-[#040816]"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-[0.16] dark:opacity-[0.12]" />
-      <div className="absolute right-[-180px] top-[-80px] h-[420px] w-[420px] rounded-full bg-violet-500/20 blur-[140px]" />
-      <div className="absolute left-[-160px] bottom-[-100px] h-[360px] w-[360px] rounded-full bg-indigo-500/20 blur-[140px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
+
+      <div className="absolute left-[-200px] top-1/2 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
 
       <div className="relative container mx-auto grid items-center gap-16 px-6 md:w-[85%] lg:grid-cols-[1.2fr_0.8fr]">
         {/* Left */}
