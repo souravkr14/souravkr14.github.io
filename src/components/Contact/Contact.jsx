@@ -54,9 +54,9 @@ const Contact = () => {
             Available for Full-Stack and AI opportunities
           </span> */}
 
-          <h2 className="mt-6 text-5xl font-black tracking-tight text-white md:text-6xl">
+          <h2 className="mt-6 text-5xl font-black tracking-tight text-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 md:text-6xl">
             Let&apos;s build
-            <span className="block bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+            <span className="block p-2 bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
               something remarkable
             </span>
           </h2>

@@ -98,9 +98,9 @@ const Projects = () => {
                     </h3>
                   </div>
 
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-200/60 bg-indigo-100 text-indigo-600 transition duration-300 group-hover:scale-110 dark:border-indigo-500/20 dark:bg-indigo-500/10 dark:text-indigo-300">
+                  {/* <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-200/60 bg-indigo-100 text-indigo-600 transition duration-300 group-hover:scale-110 dark:border-indigo-500/20 dark:bg-indigo-500/10 dark:text-indigo-300">
                     <FiArrowUpRight />
-                  </span>
+                  </span> */}
                 </div>
 
                 {/* Description */}
