@@ -4,6 +4,28 @@ import { FiExternalLink, FiGithub, FiArrowUpRight } from "react-icons/fi";
 
 const projects = [
   {
+    title: "RevHive",
+    description:
+      "Scalable social media platform built with Java microservices, secure authentication, real-time messaging, and cloud-native deployment using Docker and Kubernetes.",
+    highlights: [
+      "Built scalable Spring Boot microservices",
+      "Implemented API Gateway & service discovery",
+      "Containerized services using Docker & Kubernetes",
+    ],
+
+    tech: [
+      "Java",
+      "Spring Boot",
+      "Microservices",
+      "Kafka",
+      "Docker",
+      "Kubernetes",
+      "Azure",
+    ],
+
+    link: "https://github.com/orgs/Rev-Hive/repositories",
+  },
+  {
     title: "AI Resume Builder",
     description:
       "AI-powered resume generation platform with modular backend architecture and fast PDF rendering.",
@@ -28,18 +50,18 @@ const projects = [
     link: "https://github.com/sourav-kr14/AI-Powered-Disease-Prediction-System",
     liveLink: "https://ai-powered-disease-prediction-syste.vercel.app/",
   },
-  {
-    title: "AI-PDF Intelligence",
-    description:
-      "RAG-based document intelligence system for semantic search & summarization.",
-    highlights: [
-      "Built embeddings-based RAG pipeline",
-      "Semantic PDF search",
-      "Automated summarization",
-    ],
-    tech: ["LangChain", "Vector DB", "RAG", "NLP"],
-    link: "https://github.com/sourav-kr14/Chat-To-PDF",
-  },
+  // {
+  //   title: "AI-PDF Intelligence",
+  //   description:
+  //     "RAG-based document intelligence system for semantic search & summarization.",
+  //   highlights: [
+  //     "Built embeddings-based RAG pipeline",
+  //     "Semantic PDF search",
+  //     "Automated summarization",
+  //   ],
+  //   tech: ["LangChain", "Vector DB", "RAG", "NLP"],
+  //   link: "https://github.com/sourav-kr14/Chat-To-PDF",
+  // },
 ];
 
 const Projects = () => {

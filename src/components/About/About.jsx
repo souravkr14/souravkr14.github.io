@@ -27,7 +27,7 @@ const About = () => {
     },
     {
       icon: <FiMapPin />,
-      title: "Ranchi, India",
+      title: "Chennai, India",
       subtitle: "IST (UTC +5:30)",
       label: "Location",
       iconClass:
@@ -36,7 +36,7 @@ const About = () => {
     {
       icon: <FiZap />,
       title: "Software Development",
-      subtitle: "Java | Microservices | Full Stack | ML | DL",
+      subtitle: "Java | Microservices | Full Stack | Cloud | AI",
       label: "Current Focus",
       iconClass:
         "bg-amber-100 text-amber-600 dark:bg-amber-500/10 dark:text-amber-300",

@@ -12,12 +12,19 @@ const Hero = () => {
 
   const techStack = [
     "Java",
-    "Python",
+    "Spring Boot",
     "React",
-    "Node.js",
-    "Express.js",
-    "Machine Learning",
-    "Deep Learning",
+    "JavaScript",
+    "Python",
+    "MySQL",
+    "MongoDB",
+    "Microservices",
+    "RabbitMQ",
+    "Docker",
+    "Kubernetes",
+    "Azure",
+    "LangChain",
+    "Ollama",
   ];
 
   const socials = [
@@ -36,7 +43,7 @@ const Hero = () => {
     },
     {
       icon: <FiMail />,
-      link: "mailto:krsourav.dev@gmail.com@gmail.com",
+      link: "mailto:krsourav.dev@gmail.com",
       label: "Email",
       hoverClass: "hover:bg-red-400 hover:text-white hover:border-red-400",
     },
