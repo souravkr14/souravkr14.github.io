@@ -1,11 +1,12 @@
 import React from "react";
-import { motion } from "framer-motion";
 import {
   FiCalendar,
   FiMapPin,
   FiCheck,
   FiExternalLink,
 } from "react-icons/fi";
+import { BlurFade } from "../magicui/BlurFade";
+import { AnimatedShinyText } from "../magicui/AnimatedShinyText";
 
 const Experience = () => {
   const experiences = [
@@ -73,13 +74,13 @@ const Experience = () => {
     <section id="experience" className="relative py-12 sm:py-16">
       <div className="container mx-auto px-6 max-w-5xl">
         {/* Section Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto mb-14 max-w-2xl text-center"
-        >
+        <BlurFade delay={0.05} className="mx-auto mb-14 max-w-2xl text-center">
+          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1 text-xs font-mono dark:border-white/[0.08] dark:bg-white/[0.03]">
+            <AnimatedShinyText className="text-[11px] font-semibold uppercase tracking-wider">
+              02 / Experience
+            </AnimatedShinyText>
+          </div>
+
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
             Experience
           </h2>
@@ -88,17 +89,14 @@ const Experience = () => {
             Building strong engineering fundamentals through hands-on product
             work, backend systems, and collaborative development environments.
           </p>
-        </motion.div>
+        </BlurFade>
 
         {/* Timeline List */}
         <div className="relative space-y-8 before:absolute before:left-4 before:top-4 before:bottom-4 before:w-px before:bg-slate-200 dark:before:bg-white/[0.08] sm:before:left-6">
           {experiences.map((exp, index) => (
-            <motion.div
+            <BlurFade
               key={exp.company}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              delay={0.15 + index * 0.15}
               className="relative pl-10 sm:pl-16"
             >
               {/* Timeline Marker */}
@@ -195,7 +193,7 @@ const Experience = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </BlurFade>
           ))}
         </div>
       </div>

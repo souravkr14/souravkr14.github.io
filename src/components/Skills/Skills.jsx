@@ -1,6 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
-
 import {
   SiReact,
   SiJavascript,
@@ -20,9 +18,10 @@ import {
   SiGithubactions,
   SiApachekafka,
 } from "react-icons/si";
-
 import { FaMicrosoft } from "react-icons/fa";
 import { FiCode, FiActivity } from "react-icons/fi";
+import { BlurFade } from "../magicui/BlurFade";
+import { AnimatedShinyText } from "../magicui/AnimatedShinyText";
 
 const iconMap = {
   React: {
@@ -168,13 +167,13 @@ const Skills = () => {
     <section id="skills" className="relative py-12 sm:py-16">
       <div className="container mx-auto px-6 max-w-6xl">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto mb-14 max-w-2xl text-center"
-        >
+        <BlurFade delay={0.05} className="mx-auto mb-14 max-w-2xl text-center">
+          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1 text-xs font-mono dark:border-white/[0.08] dark:bg-white/[0.03]">
+            <AnimatedShinyText className="text-[11px] font-semibold uppercase tracking-wider">
+              04 / Technical Arsenal
+            </AnimatedShinyText>
+          </div>
+
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
             Java Full Stack Developer
           </h2>
@@ -183,53 +182,50 @@ const Skills = () => {
             Building scalable Java full stack and microservices applications
             with modern cloud and DevOps technologies.
           </p>
-        </motion.div>
+        </BlurFade>
 
         {/* Skills Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, index) => {
             const isWide = group.title === "Backend & Microservices";
             return (
-              <motion.div
+              <BlurFade
                 key={group.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`rounded-2xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-7 ${
-                  isWide ? "sm:col-span-2 lg:col-span-2" : ""
-                }`}
+                delay={0.15 + index * 0.1}
+                className={isWide ? "sm:col-span-2 lg:col-span-2" : ""}
               >
-                {/* Group Header */}
-                <div className="flex items-center justify-between pb-5 border-b border-slate-100 dark:border-white/[0.06]">
-                  <h3 className="text-base font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-indigo-600 dark:bg-indigo-400" />
-                    <span>{group.title}</span>
-                  </h3>
+                <div className="h-full rounded-2xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-7">
+                  {/* Group Header */}
+                  <div className="flex items-center justify-between pb-5 border-b border-slate-100 dark:border-white/[0.06]">
+                    <h3 className="text-base font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-indigo-600 dark:bg-indigo-400" />
+                      <span>{group.title}</span>
+                    </h3>
 
-                  <span className="font-mono text-[11px] font-medium text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-white/[0.05] px-2 py-0.5 rounded-md">
-                    {group.skills.length} skills
-                  </span>
-                </div>
+                    <span className="font-mono text-[11px] font-medium text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-white/[0.05] px-2 py-0.5 rounded-md">
+                      {group.skills.length} skills
+                    </span>
+                  </div>
 
-                {/* Skills Chips */}
-                <div className="mt-5 flex flex-wrap gap-2.5">
-                  {group.skills.map((skill, i) => {
-                    const item = iconMap[skill];
-                    return (
-                      <span
-                        key={i}
-                        className="inline-flex items-center gap-2 rounded-xl border border-slate-200/70 bg-white/90 px-3.5 py-2 text-xs font-semibold text-slate-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-200 dark:hover:border-white/20"
-                      >
-                        <span className={`text-base ${item?.color || ""}`}>
-                          {item?.icon}
+                  {/* Skills Chips */}
+                  <div className="mt-5 flex flex-wrap gap-2.5">
+                    {group.skills.map((skill, i) => {
+                      const item = iconMap[skill];
+                      return (
+                        <span
+                          key={i}
+                          className="inline-flex items-center gap-2 rounded-xl border border-slate-200/70 bg-white/90 px-3.5 py-2 text-xs font-semibold text-slate-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-200 dark:hover:border-white/20"
+                        >
+                          <span className={`text-base ${item?.color || ""}`}>
+                            {item?.icon}
+                          </span>
+                          <span>{skill}</span>
                         </span>
-                        <span>{skill}</span>
-                      </span>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </motion.div>
+              </BlurFade>
             );
           })}
         </div>
