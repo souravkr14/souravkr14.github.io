@@ -1,0 +1,52 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+# Cancel in-progress runs when new commits are pushed to the same pull request branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Least privilege permissions
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Lint & Build Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies (clean)
+        run: npm ci
+
+      - name: Run ESLint checks
+        run: npm run lint
+
+      - name: Generate production build
+        run: npm run build
+
+      - name: Validate build artifacts
+        run: |
+          if [ ! -f "dist/index.html" ]; then
+            echo "::error::dist/index.html not found!"
+            exit 1
+          fi
+          if [ ! -f "dist/CNAME" ]; then
+            echo "::error::dist/CNAME not found! Custom domain may fail."
+            exit 1
+          fi
+          echo "Build artifacts and CNAME verified successfully."
