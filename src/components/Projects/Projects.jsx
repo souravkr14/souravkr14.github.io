@@ -55,8 +55,11 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative py-12 sm:py-16">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section id="projects" className="relative py-12 sm:py-20 overflow-hidden">
+      {/* Featured Projects Spotlight Ambient Lighting */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-b from-indigo-500/[0.05] via-violet-500/[0.02] to-transparent dark:from-indigo-500/[0.08] dark:via-violet-500/[0.03] rounded-full blur-[130px]" />
+
+      <div className="container relative z-10 mx-auto px-6 max-w-6xl">
         {/* Section Header */}
         <BlurFade delay={0.05} className="mx-auto mb-14 max-w-2xl text-center">
           <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1 text-xs font-mono dark:border-white/[0.08] dark:bg-white/[0.03]">
@@ -83,7 +86,7 @@ const Projects = () => {
               delay={0.15 + index * 0.12}
               className="flex"
             >
-              <div className="group relative flex w-full flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-7">
+              <div className="group relative flex w-full flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-7">
                 {/* Border Beam for Featured Project */}
                 {project.featured && (
                   <BorderBeam

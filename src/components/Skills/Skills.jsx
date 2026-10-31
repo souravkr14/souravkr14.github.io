@@ -164,8 +164,14 @@ const skillGroups = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative py-12 sm:py-16">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section
+      id="skills"
+      className="relative py-16 sm:py-24 border-y border-slate-200/60 bg-slate-50/50 dark:border-white/[0.04] dark:bg-white/[0.012] overflow-hidden"
+    >
+      {/* Subtle ambient lighting */}
+      <div className="pointer-events-none absolute right-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-indigo-500/[0.035] dark:bg-indigo-600/[0.05] rounded-full blur-[130px]" />
+
+      <div className="container relative z-10 mx-auto px-6 max-w-6xl">
         {/* Header */}
         <BlurFade delay={0.05} className="mx-auto mb-14 max-w-2xl text-center">
           <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1 text-xs font-mono dark:border-white/[0.08] dark:bg-white/[0.03]">
@@ -194,7 +200,7 @@ const Skills = () => {
                 delay={0.15 + index * 0.1}
                 className={isWide ? "sm:col-span-2 lg:col-span-2" : ""}
               >
-                <div className="h-full rounded-2xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-7">
+                <div className="h-full rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-7">
                   {/* Group Header */}
                   <div className="flex items-center justify-between pb-5 border-b border-slate-100 dark:border-white/[0.06]">
                     <h3 className="text-base font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">

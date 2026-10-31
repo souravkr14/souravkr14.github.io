@@ -30,8 +30,11 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="relative py-12 sm:py-16">
-      <div className="container mx-auto px-6 max-w-5xl">
+    <section id="contact" className="relative py-12 sm:py-20 overflow-hidden">
+      {/* Grounding Finale Ambient Lighting */}
+      <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[950px] h-[450px] bg-gradient-to-t from-indigo-500/[0.06] via-violet-500/[0.02] to-transparent dark:from-indigo-500/[0.1] dark:via-violet-500/[0.04] rounded-full blur-[140px]" />
+
+      <div className="container relative z-10 mx-auto px-6 max-w-5xl">
         {/* Section Header */}
         <BlurFade delay={0.05} className="mx-auto mb-14 max-w-2xl text-center">
           <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1 text-xs font-mono dark:border-white/[0.08] dark:bg-white/[0.03]">
@@ -56,7 +59,7 @@ const Contact = () => {
 
         {/* Main Showcase Container */}
         <BlurFade delay={0.15}>
-          <div className="rounded-3xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md dark:border-white/[0.08] dark:bg-white/[0.03] sm:p-9 md:grid md:grid-cols-12 md:gap-10">
+          <div className="rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur-md dark:border-white/[0.08] dark:bg-white/[0.03] sm:p-9 md:grid md:grid-cols-12 md:gap-10">
             {/* Left Panel */}
             <div className="md:col-span-7 flex flex-col justify-between">
               <div>
@@ -163,7 +166,7 @@ const Contact = () => {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={item.name}
-                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/80 bg-white/80 text-slate-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:text-slate-900 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white"
+                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/80 bg-white/80 text-slate-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white"
                     >
                       {item.icon}
                     </a>

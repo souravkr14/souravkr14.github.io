@@ -7,6 +7,7 @@ import { BorderBeam } from "../magicui/BorderBeam";
 import { BlurFade } from "../magicui/BlurFade";
 import { InteractiveHoverButton } from "../magicui/InteractiveHoverButton";
 import { AnimatedShinyText } from "../magicui/AnimatedShinyText";
+import { DotPattern } from "../magicui/DotPattern";
 
 const Hero = () => {
   const stats = [
@@ -53,9 +54,23 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92vh] items-center pt-28 pb-16 lg:pt-36 lg:pb-20"
+      className="relative flex min-h-[92vh] items-center pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden"
     >
-      <div className="container mx-auto px-6 max-w-6xl">
+      {/* Hero Distinctive Background Treatment: Architectural Dot Pattern & Radial Lighting */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden [mask-image:radial-gradient(ellipse_75%_65%_at_50%_35%,#000_25%,transparent_85%)]">
+        <DotPattern
+          width={26}
+          height={26}
+          cx={1.2}
+          cy={1.2}
+          cr={1.2}
+          className="text-slate-300/70 dark:text-slate-700/50"
+        />
+      </div>
+
+      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-indigo-500/[0.06] dark:bg-indigo-500/[0.12] rounded-full blur-[130px]" />
+
+      <div className="container relative z-10 mx-auto px-6 max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left Column (Content) */}
           <div className="lg:col-span-7">

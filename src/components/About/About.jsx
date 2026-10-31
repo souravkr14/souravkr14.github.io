@@ -35,8 +35,14 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-12 sm:py-16">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section
+      id="about"
+      className="relative py-16 sm:py-24 border-y border-slate-200/60 bg-slate-50/50 dark:border-white/[0.04] dark:bg-white/[0.012] overflow-hidden"
+    >
+      {/* Subtle ambient light wash */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-indigo-500/[0.035] dark:bg-indigo-500/[0.06] rounded-full blur-[120px]" />
+
+      <div className="container relative z-10 mx-auto px-6 max-w-6xl">
         {/* Section Header */}
         <BlurFade delay={0.05} className="mx-auto mb-14 max-w-2xl text-center">
           <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1 text-xs font-mono dark:border-white/[0.08] dark:bg-white/[0.03]">
@@ -59,7 +65,7 @@ const About = () => {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
           {/* Main About / Profile Card */}
           <BlurFade delay={0.15} className="lg:col-span-7">
-            <div className="h-full rounded-2xl border border-slate-200/80 bg-white/70 p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-9">
+            <div className="h-full rounded-2xl border border-slate-200/80 bg-white/80 p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-9">
               <div>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
                   Profile
@@ -109,7 +115,7 @@ const About = () => {
 
           {/* Education Card */}
           <BlurFade delay={0.25} className="lg:col-span-5">
-            <div className="relative h-full rounded-2xl border border-slate-200/80 bg-white/70 p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-9">
+            <div className="relative h-full rounded-2xl border border-slate-200/80 bg-white/80 p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-9">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-indigo-200/60 bg-indigo-50 text-indigo-600 dark:border-indigo-500/20 dark:bg-indigo-500/10 dark:text-indigo-400">
                 <FiBookOpen size={20} />
               </div>
@@ -155,7 +161,7 @@ const About = () => {
               delay={0.35 + i * 0.1}
               className="lg:col-span-4"
             >
-              <div className="h-full rounded-2xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15">
+              <div className="h-full rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15">
                 <div className="flex items-start gap-4">
                   <div
                     className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border ${item.bgAccent} ${item.accent}`}
