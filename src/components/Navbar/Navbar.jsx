@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiSun, FiMoon, FiArrowUpRight } from "react-icons/fi";
 
 const navMenus = [
@@ -17,8 +17,6 @@ const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
-
-  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -42,7 +40,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY.current && window.scrollY > 120) {
+      if (window.scrollY > lastScrollY.current && window.scrollY > 100) {
         setVisible(false);
       } else {
         setVisible(true);
@@ -50,7 +48,7 @@ const Navbar = () => {
       lastScrollY.current = window.scrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -65,7 +63,7 @@ const Navbar = () => {
           }
         });
       },
-      { threshold: 0.6 },
+      { threshold: 0.5 },
     );
 
     sections.forEach((section) => {
@@ -76,87 +74,86 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
-      <motion.div
-        className="fixed left-0 right-0 top-0 z-[70] h-[3px] origin-left bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"
-        style={{ scaleX: scrollYProgress }}
-      />
-
-      <AnimatePresence>
-        {visible && (
-          <motion.nav
-            initial={{ y: -120, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -120, opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="fixed left-1/2 top-4 z-50 w-[94%] -translate-x-1/2 md:w-[88%] xl:w-[82%]"
-          >
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/55 shadow-[0_20px_60px_rgba(15,23,42,0.12)] backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/55">
-              <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-indigo-500/10 dark:from-white/5 dark:to-indigo-500/10" />
-
-              <div className="relative flex items-center justify-between px-4 py-3 md:px-6">
+    <AnimatePresence>
+      {visible && (
+        <motion.header
+          initial={{ y: -80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -80, opacity: 0 }}
+          transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed left-0 right-0 top-4 z-50 px-4 sm:px-6 pointer-events-none"
+        >
+          <div className="max-w-5xl mx-auto pointer-events-auto">
+            <nav className="relative rounded-2xl border border-slate-200/80 bg-white/80 p-2 shadow-[0_8px_30px_rgb(0,0,0,0.06)] backdrop-blur-xl dark:border-white/[0.08] dark:bg-[#0d0f17]/85 dark:shadow-[0_12px_40px_rgb(0,0,0,0.45)]">
+              <div className="flex items-center justify-between px-3 py-1">
+                {/* Brand */}
                 <motion.a
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href="#home"
-                  className="text-2xl font-black tracking-tight"
+                  className="flex items-center gap-1.5 text-xl font-bold tracking-tight text-slate-900 dark:text-white"
                 >
-                  <span className="bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
-                    Sourav
-                  </span>
-                  <span className="text-slate-900 dark:text-white">.</span>
+                  <span className="font-extrabold">Sourav</span>
+                  <span className="h-2 w-2 rounded-full bg-indigo-600 dark:bg-indigo-400" />
                 </motion.a>
 
-                <ul className="hidden items-center gap-2 rounded-full border border-white/20 bg-white/50 px-3 py-2 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 lg:flex">
-                  {navMenus.map((item) => (
-                    <li key={item.id} className="relative">
-                      <a
-                        href={item.link}
-                        className={`relative block rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
-                          active === item.id
-                            ? "text-white"
-                            : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
-                        }`}
-                      >
-                        {item.name}
-
-                        {active === item.id && (
-                          <motion.span
-                            layoutId="nav-pill"
-                            className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 shadow-lg shadow-indigo-900/20"
-                            transition={{
-                              type: "spring",
-                              stiffness: 380,
-                              damping: 30,
-                            }}
-                          />
-                        )}
-                      </a>
-                    </li>
-                  ))}
+                {/* Desktop Nav Links */}
+                <ul className="hidden items-center gap-1 rounded-xl bg-slate-100/70 p-1 dark:bg-white/[0.04] md:flex">
+                  {navMenus.map((item) => {
+                    const isActive = active === item.id;
+                    return (
+                      <li key={item.id} className="relative">
+                        <a
+                          href={item.link}
+                          className={`relative block rounded-lg px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors duration-200 ${
+                            isActive
+                              ? "text-slate-900 dark:text-white"
+                              : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
+                          }`}
+                        >
+                          {isActive && (
+                            <motion.span
+                              layoutId="nav-pill"
+                              className="absolute inset-0 rounded-lg bg-white shadow-sm dark:bg-white/[0.12] dark:shadow-none"
+                              transition={{
+                                type: "spring",
+                                stiffness: 420,
+                                damping: 32,
+                              }}
+                            />
+                          )}
+                          <span className="relative z-10">{item.name}</span>
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
 
-                <div className="flex items-center gap-2 md:gap-3">
+                {/* Right Actions */}
+                <div className="flex items-center gap-2">
+                  {/* Theme Toggle */}
                   <motion.button
-                    whileTap={{ rotate: 180, scale: 0.95 }}
+                    whileTap={{ scale: 0.92, rotate: 20 }}
                     onClick={() => setIsDark(!isDark)}
-                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/50 text-slate-700 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200/80 bg-white/70 text-slate-700 transition hover:bg-slate-100 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-300 dark:hover:bg-white/[0.08]"
                     aria-label="Toggle theme"
                   >
-                    {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+                    {isDark ? <FiSun size={15} /> : <FiMoon size={15} />}
                   </motion.button>
 
+                  {/* Desktop CTA */}
                   <a
                     href="#contact"
-                    className="hidden h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-500 px-5 text-sm font-semibold text-white shadow-lg shadow-indigo-900/20 transition duration-300 hover:scale-[1.02] md:inline-flex"
+                    className="group hidden sm:inline-flex h-9 items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 text-xs font-semibold text-white shadow-sm transition hover:bg-indigo-600 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
                   >
-                    Let&apos;s Talk
-                    <FiArrowUpRight />
+                    <span>Let&apos;s Talk</span>
+                    <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
 
+                  {/* Mobile Menu Toggle */}
                   <button
                     onClick={() => setOpen(!open)}
-                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/50 text-xl text-slate-700 backdrop-blur-md transition-all duration-300 hover:scale-105 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 lg:hidden"
+                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200/80 bg-white/70 text-base text-slate-700 transition hover:bg-slate-100 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-300 dark:hover:bg-white/[0.08] md:hidden"
                     aria-label="Toggle menu"
                   >
                     {open ? <FiX /> : <FiMenu />}
@@ -164,49 +161,55 @@ const Navbar = () => {
                 </div>
               </div>
 
+              {/* Mobile Drawer */}
               <AnimatePresence>
                 {open && (
                   <motion.div
-                    initial={{ opacity: 0, y: -18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -18 }}
-                    transition={{ duration: 0.25 }}
-                    className="relative border-t border-white/15 px-4 pb-4 pt-3 dark:border-white/10 lg:hidden"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.22, ease: "easeInOut" }}
+                    className="overflow-hidden border-t border-slate-200/70 pt-3 pb-2 dark:border-white/[0.08] md:hidden"
                   >
-                    <ul className="flex flex-col gap-2">
+                    <ul className="flex flex-col gap-1 px-1">
                       {navMenus.map((item) => (
                         <li key={item.id}>
                           <a
                             href={item.link}
                             onClick={() => setOpen(false)}
-                            className={`block rounded-2xl px-4 py-3 text-sm font-semibold transition-all duration-300 ${
+                            className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
                               active === item.id
-                                ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
-                                : "bg-white/40 text-slate-700 hover:bg-indigo-500 hover:text-white dark:bg-white/5 dark:text-slate-300"
+                                ? "bg-slate-900 text-white dark:bg-white dark:text-slate-950"
+                                : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/[0.05]"
                             }`}
                           >
-                            {item.name}
+                            <span>{item.name}</span>
+                            {active === item.id && (
+                              <span className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
+                            )}
                           </a>
                         </li>
                       ))}
                     </ul>
 
-                    <a
-                      href="#contact"
-                      onClick={() => setOpen(false)}
-                      className="mt-3 flex h-12 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-500 text-sm font-semibold text-white shadow-lg shadow-indigo-900/20"
-                    >
-                      Let&apos;s Talk
-                      <FiArrowUpRight />
-                    </a>
+                    <div className="mt-3 px-1">
+                      <a
+                        href="#contact"
+                        onClick={() => setOpen(false)}
+                        className="flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 text-xs font-semibold text-white shadow-sm transition hover:bg-indigo-500"
+                      >
+                        <span>Let&apos;s Talk</span>
+                        <FiArrowUpRight />
+                      </a>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
-    </>
+            </nav>
+          </div>
+        </motion.header>
+      )}
+    </AnimatePresence>
   );
 };
 

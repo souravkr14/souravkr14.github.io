@@ -13,162 +13,153 @@ const Contact = () => {
   const socials = [
     {
       name: "GitHub",
-      icon: <FiGithub />,
+      icon: <FiGithub size={18} />,
       link: "https://github.com/sourav-kr14",
-      color:
-        "hover:border-white/30 hover:bg-white hover:text-slate-950 dark:hover:bg-slate-100 dark:hover:text-slate-950",
     },
     {
       name: "LinkedIn",
-      icon: <FiLinkedin />,
+      icon: <FiLinkedin size={18} />,
       link: "https://linkedin.com/in/thesouravv",
-      color:
-        "hover:border-blue-400/40 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500",
     },
     {
       name: "LeetCode",
-      icon: <SiLeetcode />,
+      icon: <SiLeetcode size={18} />,
       link: "https://leetcode.com/u/sourav__14/",
-      color:
-        "hover:border-amber-400/40 hover:bg-amber-400 hover:text-slate-950",
     },
   ];
 
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-white py-10 dark:bg-black"
-    >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
-
-      <div className="absolute left-[-200px] top-1/2 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
-
-      <div className="relative container mx-auto px-6 md:w-[85%]">
+    <section id="contact" className="relative py-12 sm:py-16">
+      <div className="container mx-auto px-6 max-w-5xl">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 36 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="mx-auto mb-16 max-w-2xl text-center"
+          transition={{ duration: 0.5 }}
+          className="mx-auto mb-14 max-w-2xl text-center"
         >
-          {/* <span className="inline-flex items-center rounded-full border border-indigo-400/20 bg-indigo-500/10 px-4 py-1 text-sm font-medium text-indigo-300">
-            Available for Full-Stack and AI opportunities
-          </span> */}
-
-          <h2 className="mt-6 text-5xl font-black tracking-tight text-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 md:text-6xl">
-            Let&apos;s build
-            <span className="block p-2 bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
+            Let&apos;s build{" "}
+            <span className="bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
               something remarkable
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-slate-400">
+          <p className="mt-4 text-base text-slate-600 dark:text-slate-400 sm:text-lg">
             I enjoy turning ambitious ideas into clean, scalable products. If
             you&apos;re hiring or building something meaningful, I&apos;d love
             to connect.
           </p>
         </motion.div>
 
+        {/* Main Showcase Container */}
         <motion.div
-          initial={{ opacity: 0, y: 42 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
-          className="relative mx-auto grid max-w-5xl gap-6 overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl md:grid-cols-[1.15fr_0.85fr] md:p-8"
+          className="rounded-3xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md dark:border-white/[0.08] dark:bg-white/[0.03] sm:p-9 md:grid md:grid-cols-12 md:gap-10"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-indigo-500/10" />
-
           {/* Left Panel */}
-          <div className="relative rounded-[1.5rem] border border-white/10 bg-[#060b1a]/80 p-8 md:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-indigo-300">
-              Contact
-            </p>
+          <div className="md:col-span-7 flex flex-col justify-between">
+            <div>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+                Contact
+              </span>
 
-            <h3 className="mt-4 text-3xl font-bold leading-tight text-white md:text-4xl">
-              Have a role, project, or idea in mind?
-            </h3>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+                Have a role, project, or idea in mind?
+              </h3>
 
-            <p className="mt-5 max-w-lg text-base leading-8 text-slate-400">
-              I&apos;m open to software engineering roles, internship
-              opportunities, and collaboration on products that need thoughtful
-              frontend and strong backend foundations.
-            </p>
+              <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
+                I&apos;m open to software engineering roles, internship
+                opportunities, and collaboration on products that need thoughtful
+                frontend and strong backend foundations.
+              </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              {["React", "Java", "Spring Boot", "Node.js", "AI Tools"].map(
-                (item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300"
-                  >
-                    {item}
-                  </span>
-                ),
-              )}
+              {/* Stack tags */}
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["React", "Java", "Spring Boot", "Node.js", "AI Tools"].map(
+                  (item) => (
+                    <span
+                      key={item}
+                      className="rounded-md border border-slate-200/70 bg-slate-50/80 px-2.5 py-1 font-mono text-[11px] font-medium text-slate-600 dark:border-white/[0.06] dark:bg-white/[0.02] dark:text-slate-400"
+                    >
+                      {item}
+                    </span>
+                  ),
+                )}
+              </div>
             </div>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            {/* CTAs */}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="mailto:krsourav.dev@gmail.com"
-                className="inline-flex h-14 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 px-8 text-sm font-semibold text-white shadow-lg shadow-indigo-900/30 transition duration-300 hover:scale-[1.02]"
+                className="group inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 text-xs font-semibold text-white shadow-sm transition hover:bg-indigo-600 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100"
               >
-                <FiMail className="text-lg" />
-                Email Me
-                <FiArrowRight />
+                <FiMail size={15} />
+                <span>Email Me</span>
+                <FiArrowRight className="transition-transform group-hover:translate-x-1" />
               </a>
 
               <a
                 href="https://linkedin.com/in/thesouravv"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-14 items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-8 text-sm font-semibold text-slate-200 transition duration-300 hover:border-indigo-400/30 hover:bg-white/10"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-slate-200/80 bg-white/80 px-6 text-xs font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white"
               >
-                <FiLinkedin />
-                Connect on LinkedIn
+                <FiLinkedin size={15} />
+                <span>Connect on LinkedIn</span>
               </a>
             </div>
           </div>
 
           {/* Right Panel */}
-          <div className="relative flex flex-col justify-between rounded-[1.5rem] border border-white/10 bg-white/5 p-8">
+          <div className="mt-8 md:mt-0 md:col-span-5 flex flex-col justify-between border-t border-slate-100 pt-8 dark:border-white/[0.06] md:border-t-0 md:border-l md:pl-10 md:pt-0">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-400">
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500">
                 Quick Info
-              </p>
+              </span>
 
-              <div className="mt-8 space-y-6">
-                <div className="rounded-2xl border border-white/10 bg-[#070d1f]/80 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
+              <div className="mt-4 space-y-4">
+                {/* Email Info Card */}
+                <div className="rounded-xl border border-slate-200/70 bg-white/60 p-4 dark:border-white/[0.06] dark:bg-white/[0.02]">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">
                     Email
                   </p>
                   <a
                     href="mailto:krsourav.dev@gmail.com"
-                    className="mt-2 block text-base font-medium text-white transition hover:text-indigo-300"
+                    className="mt-1 block text-sm font-semibold text-slate-900 dark:text-white transition hover:text-indigo-600 dark:hover:text-indigo-400"
                   >
                     krsourav.dev@gmail.com
                   </a>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-[#070d1f]/80 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
+                {/* Location Info Card */}
+                <div className="rounded-xl border border-slate-200/70 bg-white/60 p-4 dark:border-white/[0.06] dark:bg-white/[0.02]">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">
                     Location
                   </p>
-                  <p className="mt-2 flex items-center gap-2 text-base font-medium text-white">
-                    <FiMapPin className="text-indigo-300" />
-                    Ranchi, India
+                  <p className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-slate-900 dark:text-white">
+                    <FiMapPin size={14} className="text-indigo-600 dark:text-indigo-400" />
+                    <span>Ranchi, India</span>
                   </p>
-                  <p className="mt-2 text-sm text-slate-400">
+                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                     Open to remote roles and relocation opportunities.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">
+            {/* Socials */}
+            <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/[0.06]">
+              <p className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                 Find Me Online
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="mt-3 flex items-center gap-2.5">
                 {socials.map((item) => (
                   <a
                     key={item.name}
@@ -176,7 +167,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={item.name}
-                    className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-lg text-slate-200 transition-all duration-300 hover:-translate-y-1 ${item.color}`}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/80 bg-white/80 text-slate-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white"
                   >
                     {item.icon}
                   </a>
@@ -186,23 +177,24 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        <footer className="relative mt-16 border-t border-white/10 pt-8">
-          <div className="container mx-auto flex flex-col items-center gap-5 px-6">
-            <nav className="flex flex-wrap justify-center gap-6">
+        {/* Footer */}
+        <footer className="mt-14 border-t border-slate-200/70 pt-8 dark:border-white/[0.06]">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <nav className="flex flex-wrap items-center gap-6">
               {["About", "Experience", "Projects", "Skills"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-sm text-slate-400 transition hover:text-indigo-300"
+                  className="text-xs font-medium text-slate-500 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
                 >
                   {item}
                 </a>
               ))}
             </nav>
 
-            <p className="text-center text-sm text-slate-500">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               © {new Date().getFullYear()} Designed and built by{" "}
-              <span className="font-semibold text-indigo-300">
+              <span className="font-semibold text-slate-800 dark:text-slate-200">
                 Sourav Kumar
               </span>
             </p>

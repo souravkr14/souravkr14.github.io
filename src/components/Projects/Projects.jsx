@@ -12,7 +12,6 @@ const projects = [
       "Implemented API Gateway & service discovery",
       "Containerized services using Docker & Kubernetes",
     ],
-
     tech: [
       "Java",
       "Spring Boot",
@@ -22,7 +21,6 @@ const projects = [
       "Kubernetes",
       "Azure",
     ],
-
     link: "https://github.com/orgs/Rev-Hive/repositories",
   },
   {
@@ -50,135 +48,118 @@ const projects = [
     link: "https://github.com/sourav-kr14/AI-Powered-Disease-Prediction-System",
     liveLink: "https://ai-powered-disease-prediction-syste.vercel.app/",
   },
-  // {
-  //   title: "AI-PDF Intelligence",
-  //   description:
-  //     "RAG-based document intelligence system for semantic search & summarization.",
-  //   highlights: [
-  //     "Built embeddings-based RAG pipeline",
-  //     "Semantic PDF search",
-  //     "Automated summarization",
-  //   ],
-  //   tech: ["LangChain", "Vector DB", "RAG", "NLP"],
-  //   link: "https://github.com/sourav-kr14/Chat-To-PDF",
-  // },
 ];
 
 const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="relative overflow-hidden bg-white py-10 dark:bg-[#040816]"
-    >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:60px_60px] opacity-30"></div>
-
-      <div className="absolute left-[-200px] top-1/2 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[160px] opacity-20 animate-pulse"></div>
-
-      <div className="relative container mx-auto px-6 md:w-[85%]">
-        {/* Header */}
+    <section id="projects" className="relative py-12 sm:py-16">
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 36 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="mx-auto mb-20 max-w-3xl text-center"
+          transition={{ duration: 0.5 }}
+          className="mx-auto mb-14 max-w-2xl text-center"
         >
-          {/* <span className="inline-flex rounded-full border border-indigo-400/20 bg-indigo-500/10 px-4 py-1 text-sm font-medium text-indigo-300">
-            Selected work
-          </span> */}
-
-          <h2 className="mt-6 text-4xl font-black sm:text-5xl md:text-6xl">
-            <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
-              Featured Projects
-            </span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
+            Featured Projects
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-base text-slate-600 dark:text-slate-400 sm:text-lg">
             Real-world builds focused on scalable architecture, AI workflows,
             and thoughtful product engineering.
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {/* Project Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 45 }}
+              key={project.title}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.55, delay: index * 0.12 }}
-              className="group relative overflow-hidden rounded-[2rem] border border-white/20 bg-white/50 p-8 shadow-[0_20px_60px_rgba(15,23,42,0.10)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_28px_80px_rgba(99,102,241,0.18)] dark:border-white/10 dark:bg-slate-900/45"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/15 sm:p-7"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10 opacity-0 transition duration-500 group-hover:opacity-100" />
+              <div>
+                {/* Top index and action link */}
+                <div className="flex items-center justify-between pb-4">
+                  <span className="font-mono text-xs font-semibold text-slate-400 dark:text-slate-500">
+                    0{index + 1}
+                  </span>
 
-              <div className="relative flex h-full flex-col">
-                {/* Top */}
-                <div className="mb-6 flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-300">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  {/* <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-200/60 bg-indigo-100 text-indigo-600 transition duration-300 group-hover:scale-110 dark:border-indigo-500/20 dark:bg-indigo-500/10 dark:text-indigo-300">
-                    <FiArrowUpRight />
-                  </span> */}
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.title} repository`}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200/80 bg-white/80 text-slate-600 transition hover:border-indigo-400 hover:text-indigo-600 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-400 dark:hover:border-white/20 dark:hover:text-white"
+                  >
+                    <FiArrowUpRight size={15} />
+                  </a>
                 </div>
 
+                {/* Title */}
+                <h3 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white transition-colors group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                  {project.title}
+                </h3>
+
                 {/* Description */}
-                <p className="mb-6 text-sm leading-7 text-slate-600 dark:text-slate-400">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                   {project.description}
                 </p>
 
                 {/* Highlights */}
-                <ul className="mb-8 space-y-3">
+                <ul className="mt-5 space-y-2 border-t border-slate-100 pt-4 dark:border-white/[0.06]">
                   {project.highlights.map((h, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 text-sm leading-7 text-slate-700 dark:text-slate-300"
+                      className="flex items-start gap-2.5 text-xs leading-relaxed text-slate-600 dark:text-slate-300"
                     >
-                      <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-indigo-400 to-fuchsia-400" />
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-indigo-500 dark:bg-indigo-400" />
                       <span>{h}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Tech */}
-                <div className="mb-8 flex flex-wrap gap-2">
-                  {project.tech.map((tech, i) => (
+                {/* Tech Badges */}
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {project.tech.map((tech) => (
                     <span
-                      key={i}
-                      className="rounded-full border border-white/20 bg-white/70 px-3 py-1.5 text-xs font-medium text-slate-700 transition duration-300 hover:border-indigo-400/30 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-slate-800/70 dark:text-slate-300"
+                      key={tech}
+                      className="rounded-md border border-slate-200/70 bg-slate-50/80 px-2.5 py-1 font-mono text-[11px] font-medium text-slate-600 dark:border-white/[0.06] dark:bg-white/[0.02] dark:text-slate-400"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
+              </div>
 
-                {/* Actions */}
-                <div className="mt-auto flex flex-wrap gap-3">
+              {/* Action Buttons */}
+              <div className="mt-7 flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-white/[0.06]">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-9 items-center justify-center gap-2 rounded-xl border border-slate-200/80 bg-white/80 px-4 text-xs font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white"
+                >
+                  <FiGithub size={14} />
+                  <span>Code</span>
+                </a>
+
+                {project.liveLink && (
                   <a
-                    href={project.link}
+                    href={project.liveLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/70 px-5 text-sm font-medium text-slate-800 transition duration-300 hover:border-indigo-400/30 hover:bg-indigo-500 hover:text-white dark:border-white/10 dark:bg-slate-800/70 dark:text-slate-200"
+                    className="inline-flex h-9 items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 text-xs font-semibold text-white shadow-sm transition hover:bg-indigo-600 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100"
                   >
-                    <FiGithub />
-                    Code
+                    <span>Live Demo</span>
+                    <FiExternalLink size={13} />
                   </a>
-
-                  {project.liveLink && (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-5 text-sm font-medium text-white shadow-lg shadow-indigo-900/20 transition duration-300 hover:scale-[1.02] hover:from-indigo-400 hover:to-fuchsia-500"
-                    >
-                      Live Demo
-                      <FiExternalLink />
-                    </a>
-                  )}
-                </div>
+                )}
               </div>
             </motion.div>
           ))}
